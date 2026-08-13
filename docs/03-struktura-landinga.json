@@ -1,0 +1,181 @@
+{
+  "project": "Премиальный лендинг учебного центра ДПО",
+  "version": "1.0.0",
+  "locale": "ru-RU",
+  "theme": {
+    "palette": {
+      "bgDeep": "#1A2332",
+      "accentGold": "#FFD700",
+      "white": "#FFFFFF",
+      "darkText": "#2A2A2A"
+    },
+    "fonts": {
+      "headings": "Playfair Display",
+      "body": "Inter"
+    },
+    "libraries": ["GSAP", "ScrollTrigger", "Particles.js", "Swiper.js"]
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "sticky-header",
+      "elements": [
+        { "type": "logo", "text": "Академия ДПО", "tagline": "Премиальное образование" },
+        {
+          "type": "nav",
+          "items": [
+            { "label": "Направления", "href": "#directions" },
+            { "label": "Преимущества", "href": "#advantages" },
+            { "label": "Курсы", "href": "#courses" },
+            { "label": "Отзывы", "href": "#reviews" },
+            { "label": "Партнёры", "href": "#partners" },
+            { "label": "FAQ", "href": "#faq" },
+            { "label": "Контакты", "href": "#contacts" }
+          ]
+        },
+        { "type": "cta-button", "label": "Записаться", "href": "#enroll", "variant": "primary" }
+      ],
+      "behavior": "transparent-on-top, solid-on-scroll, mobile-burger-menu"
+    },
+    {
+      "id": "hero",
+      "type": "hero",
+      "background": { "type": "particles", "library": "particles.js", "color": "#FFD700" },
+      "content": {
+        "eyebrow": "Лицензия № 0000-00 • ФИС ФРДО",
+        "title": "Премиальное дополнительное профессиональное образование",
+        "subtitle": "Повышение квалификации, профессиональная переподготовка и рабочие профессии. Документ государственного образца. Очно и дистанционно.",
+        "ctas": [
+          { "label": "Записаться на курс", "href": "#enroll", "variant": "primary" },
+          { "label": "Подобрать направление", "href": "#directions", "variant": "ghost" }
+        ],
+        "stats": [
+          { "value": 15000, "suffix": "+", "label": "выпускников" },
+          { "value": 12, "suffix": " лет", "label": "на рынке" },
+          { "value": 250, "suffix": "+", "label": "программ" },
+          { "value": 98, "suffix": "%", "label": "довольны обучением" }
+        ]
+      },
+      "animation": "GSAP timeline: title fade-up, subtitle fade-up delay, stats stagger count-up"
+    },
+    {
+      "id": "directions",
+      "type": "tabs",
+      "title": "Наши направления",
+      "tabs": [
+        {
+          "id": "working",
+          "label": "Рабочие профессии",
+          "items": ["Электромонтёр", "Сварщик", "Стропальщик", "Машинист", "Слесарь"]
+        },
+        {
+          "id": "qualification",
+          "label": "Повышение квалификации",
+          "items": ["Охрана труда", "Пожарная безопасность", "ПТМ", "ГО и ЧС", "Экология"]
+        },
+        {
+          "id": "retraining",
+          "label": "Профпереподготовка",
+          "items": ["Бухучёт", "Менеджмент", "Кадровое дело", "Логистика", "IT-специальности"]
+        }
+      ],
+      "behavior": "switch active panel, animate content swap, accessible (role=tablist)"
+    },
+    {
+      "id": "advantages",
+      "type": "features-grid",
+      "title": "Почему выбирают нас",
+      "columns": 4,
+      "items": [
+        { "icon": "shield", "title": "Лицензия", "text": "Бессрочная лицензия на образовательную деятельность. Документ гособразца." },
+        { "icon": "users", "title": "Преподаватели-практики", "text": "Эксперты с опытом 10+ лет, действующие специалисты отрасли." },
+        { "icon": "calendar", "title": "Удобный график", "text": "Очно, дистанционно и в экспресс-формате. Подстраиваемся под вас." },
+        { "icon": "medal", "title": "Гарантии", "text": "Внесение в ФИС ФРДО. Возврат средств при невыполнении обязательств." }
+      ],
+      "animation": "GSAP scroll fade-up, stagger 0.08, 3D-tilt on hover (desktop)"
+    },
+    {
+      "id": "courses",
+      "type": "cards-grid",
+      "title": "Популярные курсы",
+      "cards": [
+        { "title": "Охрана труда", "format": "Дистанционно", "hours": "40 ак. ч.", "price": "3 900 ₽", "tag": "Хит" },
+        { "title": "Профпереподготовка: Бухучёт", "format": "Дистанционно", "hours": "260 ак. ч.", "price": "24 900 ₽", "tag": "Диплом" },
+        { "title": "Пожарная безопасность (ПТМ)", "format": "Очно / онлайн", "hours": "16 ак. ч.", "price": "2 500 ₽", "tag": null },
+        { "title": "Электромонтёр 4 разряда", "format": "Очно", "hours": "120 ак. ч.", "price": "12 000 ₽", "tag": "Удостоверение" },
+        { "title": "ГО и ЧС для руководителей", "format": "Дистанционно", "hours": "72 ак. ч.", "price": "5 400 ₽", "tag": null },
+        { "title": "Менеджмент (MBA-модуль)", "format": "Очно", "hours": "520 ак. ч.", "price": "79 000 ₽", "tag": "Премиум" }
+      ],
+      "card_actions": [{ "label": "Записаться", "href": "#enroll", "variant": "primary" }],
+      "animation": "GSAP 3D-tilt, stagger fade-in, golden border glow on hover"
+    },
+    {
+      "id": "reviews",
+      "type": "slider",
+      "library": "swiper.js",
+      "title": "Отзывы выпускников",
+      "items": [
+        { "author": "Иванова А.", "role": "Бухгалтер", "rating": 5, "text": "Прошла переподготовку — диплом получил в срок, материал доступный." },
+        { "author": "Петров С.", "role": "Специалист по ОТ", "rating": 5, "text": "Удобный дистанционный формат, удостов. доставлен курьером." },
+        { "author": "Сидорова М.", "role": "Менеджер", "rating": 5, "text": "Премиальный подход: преподаватели-практики, живые кейсы." },
+        { "author": "Кузнецов Д.", "role": "Электромонтёр", "rating": 5, "text": "Получил 4 разряд, устроился на новую работу через месяц." },
+        { "author": "Орлова Е.", "role": "HR-директор", "rating": 5, "text": "Обучали группу сотрудников — спеццена и удобный график." }
+      ],
+      "options": { "loop": true, "autoplay": true, "pagination": true, "speed": 600 }
+    },
+    {
+      "id": "partners",
+      "type": "logo-marquee",
+      "library": "swiper.js",
+      "title": "Нам доверяют",
+      "logos": ["ГАЗПРОМ", "РОСНЕФТЬ", "СБЕР", "РЖД", "РОСАТОМ", "ВТБ", "ЛУКОЙЛ", "МАГНИТ"],
+      "options": { "loop": true, "autoplay": true, "slidesPerView": "auto", "free": true }
+    },
+    {
+      "id": "faq",
+      "type": "accordion",
+      "title": "Часто задаваемые вопросы",
+      "items": [
+        { "q": "Какие документы выдаются по окончании?", "a": "Диплом о профпереподготовке, удостоверение о повышении квалификации или свидетельство о профессии рабочего — государственного образца." },
+        { "q": "Вносится ли обучение в ФИС ФРДО?", "a": "Да, сведения вносятся в Федеральный реестр сведений документов об обучении в течение 60 дней." },
+        { "q": "Можно ли обучаться дистанционно?", "a": "Да, большинство программ доступны в дистанционном формате с доставкой документов по РФ." },
+        { "q": "Есть ли рассрочка и скидки?", "a": "Предусмотрена рассрочка, а также спецпредложения при коллективных заявках от организаций." },
+        { "q": "Как проверить лицензию?", "a": "Лицензия бессрочная, проверить можно на сайте Рособрнадзора по номеру, указанному в шапке." }
+      ],
+      "behavior": "single-open accordion, CSS grid height animation, accessible (button+aria-expanded)"
+    },
+    {
+      "id": "enroll",
+      "type": "form",
+      "title": "Записаться на обучение",
+      "fields": [
+        { "name": "name", "type": "text", "label": "Ваше имя", "required": true, "validation": "min:2" },
+        { "name": "phone", "type": "tel", "label": "Телефон", "required": true, "validation": "ru-phone" },
+        { "name": "course", "type": "select", "label": "Курс", "required": true, "options": ["Охрана труда", "Профпереподготовка: Бухучёт", "Пожарная безопасность", "Электромонтёр", "ГО и ЧС", "Менеджмент"] }
+      ],
+      "submit": { "label": "Отправить заявку", "variant": "primary" },
+      "validation": "client-side, inline errors, success state",
+      "compliance": "Чекбокс согласия на обработку ПДн (152-ФЗ)"
+    },
+    {
+      "id": "footer",
+      "type": "footer",
+      "columns": [
+        { "title": "Контакты", "items": ["+7 (800) 000-00-00", "info@academy-dpo.ru", "г. Москва, ул. Образования, 1", "Пн–Пт 9:00–20:00"] },
+        { "title": "Направления", "items": ["Рабочие профессии", "Повышение квалификации", "Профпереподготовка", "Корпоративное обучение"] },
+        { "title": "Документы", "items": ["Лицензия № 0000-00", "ФИС ФРДО", "Согласие на обработку ПДн", "Политика конфиденциальности"] }
+      ],
+      "social": ["Telegram", "ВКонтакте", "WhatsApp", "YouTube"],
+      "map": { "provider": "yandex-embed", "zoom": 14 },
+      "legal": "© 2024 Академия ДПО. Лицензия на образовательную деятельность № 0000-00"
+    }
+  ],
+  "accessibility": {
+    "wcag": "AA",
+    "features": ["aria-labels", "role=tablist", "aria-expanded accordion", "focus-visible", "prefers-reduced-motion", "semantic html5"]
+  },
+  "performance": {
+    "strategy": "mobile-first, no heavy raster images, CDN libs, deferred JS",
+    "targets": { "lcp": "<2.5s", "cls": "<0.1", "fid": "<100ms" }
+  }
+}

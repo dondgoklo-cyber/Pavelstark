@@ -94,7 +94,7 @@
     const hide = () => { pl.classList.add("is-hidden"); setTimeout(() => pl.remove(), 500); };
     if (prefersReducedMotion) { hide(); return; }
     window.addEventListener("load", () => setTimeout(hide, 400));
-    setTimeout(hide, 1500); // запасной выход — не задерживаем пользователя
+    setTimeout(hide, 800); // запасной выход — не задерживаем пользователя
   }
 
   /* ============================================================

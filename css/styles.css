@@ -60,14 +60,15 @@ body {
   position: relative;
 }
 @media (pointer: fine) {
-  body { cursor: none; }
-  a, button, .magnetic, input, select, label { cursor: none; }
+  /* Системный курсор НЕ скрываем — кастомный курсор как дополнение */
+  body { cursor: auto; }
+  a, button, .magnetic, input, select, label { cursor: pointer; }
 }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-@media (pointer: fine) { button { cursor: none; } }
+@media (pointer: fine) { button { cursor: pointer; } }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
 main { overflow-x: hidden; width: 100%; max-width: 100%; }
@@ -129,7 +130,7 @@ main { overflow-x: hidden; width: 100%; max-width: 100%; }
 /* ============================================================
    SCROLL PROGRESS
    ============================================================ */
-.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-dim)); z-index: 200; transition: width 0.1s linear; }
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-dim)); z-index: 200; transition: width 0.15s ease-out; }
 
 /* ============================================================
    CUSTOM CURSOR
@@ -305,7 +306,7 @@ main { overflow-x: hidden; width: 100%; max-width: 100%; }
 .review__author { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted-dark); }
 .review__avatar { width: 44px; height: 44px; border-radius: 50%; flex: none; display: grid; place-items: center; font-weight: 700; font-size: 14px; background: linear-gradient(135deg, var(--bg-deep), var(--bg-panel)); color: var(--gold); }
 .reviews-pagination { position: static; }
-.reviews-pagination .swiper-pagination-bullet { background: var(--muted-dark); opacity: 0.4; }
+.reviews-pagination .swiper-pagination-bullet { background: var(--muted-dark); opacity: 0.6; }
 .reviews-pagination .swiper-pagination-bullet-active { background: var(--gold); opacity: 1; }
 
 /* ============================================================
@@ -553,10 +554,10 @@ html, body { overscroll-behavior: none; }
 .page-hero__lead { font-size: clamp(15px, 2.5vw, 18px); color: var(--soft-white); opacity: 0.9; max-width: 640px; }
 
 /* Breadcrumbs */
-.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--soft-white); opacity: 0.75; margin-bottom: 16px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--soft-white); opacity: 0.85; margin-bottom: 16px; }
 .breadcrumbs a { color: var(--gold); }
 .breadcrumbs a:hover { text-decoration: underline; }
-.breadcrumbs span[aria-current] { color: var(--soft-white); opacity: 0.7; }
+.breadcrumbs span[aria-current] { color: var(--soft-white); opacity: 0.9; }
 
 /* Prose (текстовые блоки) */
 .prose { font-size: 16px; line-height: 1.7; color: var(--dark-text); max-width: 720px; }
@@ -774,7 +775,7 @@ html, body { overscroll-behavior: none; }
    DECIDE: Добавить «огонёк» срочности на главной CTA
    ACT: Псевдоэлемент «🔥 -10%» на hero CTA */
 .hero__cta .btn--primary:first-child { position: relative; }
-.hero__cta .btn--primary:first-child::after { content: "-10%"; position: absolute; top: -6px; right: -4px; background: #FF6B6B; color: #fff; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 100px; box-shadow: 0 4px 12px rgba(255,107,107,0.4); animation: pulseDot 1.5s var(--ease) infinite; z-index: 5; }
+.hero__cta .btn--primary:first-child::after { content: "-10%"; position: absolute; top: -6px; right: -4px; background: #FF6B6B; color: #fff; font-size: 12px; font-weight: 800; padding: 3px 8px; border-radius: 100px; box-shadow: 0 4px 12px rgba(255,107,107,0.4); animation: pulseDot 1.5s var(--ease) infinite; z-index: 5; }
 
 /* И4: КОНТРАСТ И ЧИТАЕМОСТЬ
    OBSERVE: muted #7A8499 контраст 4.46:1 — не проходит WCAG AA

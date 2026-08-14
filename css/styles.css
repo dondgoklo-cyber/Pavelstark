@@ -422,3 +422,173 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .hero__particles { display: none; }
   .hero__scroll { display: none; }
 }
+
+/* ============================================================
+   COURSE DESCRIPTION (рендерится из config.js)
+   ============================================================ */
+.course-card__desc {
+  font-size: 14px;
+  color: var(--soft-white);
+  opacity: 0.75;
+  margin-bottom: 18px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* ============================================================
+   CITY SELECTOR (в шапке)
+   ============================================================ */
+.header__city { position: relative; display: none; }
+.city-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border-radius: 100px; font-size: 14px; font-weight: 500;
+  color: var(--soft-white); background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1); transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.city-btn:hover { border-color: var(--gold); color: var(--gold); }
+.city-btn svg { color: var(--gold); }
+.city-dropdown {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 200;
+  min-width: 240px; max-height: 320px; overflow-y: auto;
+  background: var(--bg-panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 8px; box-shadow: var(--shadow-soft);
+}
+.city-dropdown__item {
+  display: block; padding: 9px 14px; border-radius: 8px; font-size: 14px;
+  color: var(--soft-white); transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.city-dropdown__item:hover, .city-dropdown__item.is-current { background: rgba(255, 215, 0, 0.12); color: var(--gold); }
+.city-dropdown__item.is-current { font-weight: 600; }
+
+/* ============================================================
+   PAGE HEADER (внутренние страницы)
+   ============================================================ */
+.page-header {
+  background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-deeper) 100%);
+  color: var(--white); padding: 56px 0 48px; position: relative; overflow: hidden;
+}
+.page-header__inner { position: relative; z-index: 1; max-width: 860px; }
+.page-header__eyebrow {
+  text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; font-weight: 600;
+  color: var(--gold); margin-bottom: 12px;
+}
+.page-header__title { font-family: var(--ff-head); font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+.page-header__lead { color: var(--soft-white); opacity: 0.9; font-size: 16px; max-width: 620px; }
+
+/* Breadcrumbs */
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; margin-bottom: 20px; color: var(--soft-white); opacity: 0.7; }
+.breadcrumbs a:hover { color: var(--gold); }
+.breadcrumbs__sep { opacity: 0.5; }
+
+/* Текущий пункт навигации */
+.nav__link.is-current { color: var(--gold); }
+
+/* ============================================================
+   PROSE / типографика статичных страниц
+   ============================================================ */
+.prose { max-width: 760px; }
+.prose p { margin-bottom: 16px; color: var(--muted-dark); font-size: 16px; line-height: 1.75; }
+.prose h2 { font-family: var(--ff-head); font-size: 26px; font-weight: 700; margin: 32px 0 14px; }
+.prose h3 { font-family: var(--ff-head); font-size: 20px; font-weight: 700; margin: 26px 0 10px; }
+.prose ul { margin: 0 0 16px; padding-left: 22px; }
+.prose ul li { color: var(--muted-dark); margin-bottom: 8px; line-height: 1.65; list-style: disc; }
+.prose a { color: var(--gold-dim); text-decoration: underline; }
+
+/* ============================================================
+   TEACHERS GRID
+   ============================================================ */
+.teachers { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.teacher-card {
+  background: var(--white); border: 1px solid #EAEDF2; border-radius: var(--radius-card);
+  padding: 28px 24px; box-shadow: var(--shadow-soft); text-align: center;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.teacher-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-gold); border-color: var(--gold); }
+.teacher-card__avatar {
+  width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px;
+  display: grid; place-items: center; font-family: var(--ff-head); font-weight: 700; font-size: 32px;
+  background: linear-gradient(135deg, var(--bg-deep), var(--bg-panel)); color: var(--gold);
+}
+.teacher-card__name { font-family: var(--ff-head); font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.teacher-card__role { font-size: 14px; color: var(--gold-dim); font-weight: 600; margin-bottom: 10px; }
+.teacher-card__bio { font-size: 14px; color: var(--muted-dark); line-height: 1.55; }
+
+/* ============================================================
+   BLOG GRID
+   ============================================================ */
+.blog-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.blog-card {
+  background: var(--white); border: 1px solid #EAEDF2; border-radius: var(--radius-card);
+  overflow: hidden; box-shadow: var(--shadow-soft);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-gold); border-color: var(--gold); }
+.blog-card__cover { height: 180px; background: linear-gradient(135deg, var(--bg-deep), var(--bg-panel)); display: grid; place-items: center; color: var(--gold); font-family: var(--ff-head); font-size: 28px; font-weight: 700; }
+.blog-card__body { padding: 22px; }
+.blog-card__date { font-size: 13px; color: var(--gold-dim); font-weight: 600; margin-bottom: 8px; }
+.blog-card__title { font-family: var(--ff-head); font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+.blog-card__excerpt { font-size: 14px; color: var(--muted-dark); line-height: 1.55; margin-bottom: 14px; }
+
+/* ============================================================
+   CITY PAGE
+   ============================================================ */
+.city-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.city-card {
+  background: var(--white); border: 1px solid #EAEDF2; border-radius: var(--radius-card);
+  padding: 28px 24px; box-shadow: var(--shadow-soft);
+}
+.city-card__row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EAEDF2; }
+.city-card__row:last-child { border-bottom: none; }
+.city-card__label { font-size: 13px; color: var(--muted); font-weight: 600; min-width: 120px; }
+.city-card__value { font-size: 15px; color: var(--dark-text); font-weight: 500; }
+.city-card__value a { color: var(--gold-dim); text-decoration: underline; }
+.city-map { height: 360px; border-radius: var(--radius-card); overflow: hidden; border: 1px solid #EAEDF2; background: var(--bg-panel); }
+
+.cities-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.city-link {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 18px; border-radius: 12px; background: var(--bg-panel);
+  border: 1px solid rgba(255, 255, 255, 0.08); color: var(--soft-white);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.city-link:hover { border-color: var(--gold); transform: translateX(4px); }
+.city-link__name { font-weight: 600; }
+.city-link__meta { font-size: 13px; opacity: 0.7; }
+
+/* ============================================================
+   FILTER (courses.html) + CTA band
+   ============================================================ */
+.filter { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 28px; }
+.filter__btn {
+  padding: 10px 18px; border-radius: 100px; font-weight: 600; font-size: 14px;
+  background: rgba(255, 255, 255, 0.06); color: var(--soft-white);
+  border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.25s var(--ease);
+}
+.filter__btn:hover, .filter__btn.is-active { background: var(--gold); color: var(--bg-deep); border-color: var(--gold); }
+
+.cta-band {
+  background: linear-gradient(135deg, var(--bg-deep), var(--bg-deeper));
+  border-radius: var(--radius-card); padding: 40px 32px; text-align: center; color: var(--soft-white);
+}
+.cta-band__title { font-family: var(--ff-head); font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.cta-band__text { opacity: 0.85; margin-bottom: 24px; max-width: 540px; margin-inline: auto; }
+
+/* ============================================================
+   RESPONSIVE: дополнения
+   ============================================================ */
+@media (min-width: 768px) {
+  .header__city { display: block; }
+  .page-header { padding: 80px 0 64px; }
+  .page-header__title { font-size: 44px; }
+  .teachers { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .city-grid { grid-template-columns: 1fr 1.4fr; align-items: start; }
+  .cities-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .teachers { grid-template-columns: repeat(4, 1fr); }
+  .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  .cities-grid { grid-template-columns: repeat(3, 1fr); }
+  .page-header__title { font-size: 52px; }
+}

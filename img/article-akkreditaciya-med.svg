@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E1420"/>
+      <stop offset="1" stop-color="#060A12"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6B6B"/>
+      <stop offset="1" stop-color="#C9A23A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#FF6B6B" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- Декоративная сетка -->
+  <g opacity="0.04" stroke="#FF6B6B" stroke-width="1">
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+  <!-- Иконка -->
+  <g transform="translate(440,160)">
+    <rect x="120" y="20" width="80" height="280" rx="20" fill="url(#acc)" fill-opacity="0.15" stroke="url(#acc)" stroke-width="4"/>
+    <rect x="20" y="120" width="280" height="80" rx="20" fill="url(#acc)" fill-opacity="0.15" stroke="url(#acc)" stroke-width="4"/>
+    <rect x="120" y="20" width="80" height="280" rx="20" fill="url(#acc)" fill-opacity="0.3"/>
+    <rect x="20" y="120" width="280" height="80" rx="20" fill="url(#acc)" fill-opacity="0.3"/>
+    <circle cx="160" cy="160" r="30" fill="url(#acc)"/>
+  </g>
+  <!-- Текст -->
+  <text x="80" y="540" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#FFFFFF">Аккредитация медиков</text>
+  <text x="82" y="575" font-family="Arial, sans-serif" font-size="18" fill="#FF6B6B" opacity="0.7">Академия ДПО · Блог</text>
+  <!-- Логотип-знак -->
+  <rect x="80" y="50" width="52" height="52" rx="14" fill="url(#acc)"/>
+  <text x="106" y="86" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#0E1420" text-anchor="middle">A</text>
+</svg>

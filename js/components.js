@@ -47,13 +47,14 @@ ${navLinks}
         </nav>
         <div class="header__actions">
           <a href="tel:+78000000000" class="header__phone">8 800 000-00-00</a>
-          <button type="button" class="cart-trigger" data-cart-open aria-label="Открыть корзину">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <button type="button" class="cart-btn" data-cart-open aria-label="Открыть корзину">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L22 8H6" />
               <circle cx="9" cy="21" r="1.6" />
               <circle cx="18" cy="21" r="1.6" />
             </svg>
-            <span class="cart-trigger__badge" data-cart-count hidden>0</span>
+            <span class="cart-btn__label">Корзина</span>
+            <span class="cart-btn__badge" data-cart-count hidden>0</span>
           </button>
           <a href="marketplace.html" class="btn btn--primary header__cta magnetic" data-magnetic>Каталог программ</a>
           <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
@@ -155,6 +156,19 @@ ${navLinks}
 
     // Footer — в конец body
     document.body.insertAdjacentHTML("beforeend", buildFooter());
+
+    // Плавающая кнопка корзины (FAB) — видна на мобильных при прокрутке
+    if (!document.getElementById("cart-fab")) {
+      document.body.insertAdjacentHTML("beforeend",
+        '<button type="button" class="cart-fab" id="cart-fab" data-cart-open aria-label="Корзина" hidden>' +
+        '  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+        '    <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L22 8H6" />' +
+        '    <circle cx="9" cy="21" r="1.6" /><circle cx="18" cy="21" r="1.6" />' +
+        '  </svg>' +
+        '  <span class="cart-fab__badge" data-cart-count hidden>0</span>' +
+        '</button>'
+      );
+    }
 
     // Оживляем бургер-меню и header-scroll сразу после вставки шапки.
     // Флаг защищает от двойной инициализации, если main.js тоже это делает.

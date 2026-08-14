@@ -189,6 +189,11 @@
     for (var j = 0; j < totalEls.length; j++) {
       totalEls[j].textContent = fmtPrice(total());
     }
+    // Плавающая кнопка (FAB): показываем только если в корзине есть товары
+    var fab = document.getElementById("cart-fab");
+    if (fab) {
+      fab.hidden = n === 0;
+    }
   }
 
   function renderDrawer() {

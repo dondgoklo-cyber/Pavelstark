@@ -166,4 +166,23 @@ ${navLinks}
 
   // Экспортируем для использования в main.js (инициализация бургера, header scroll и т.д.)
   window.__componentsReady = true;
+
+  // Автоскрытие прелоадера: если main.js не подключён (например, на marketplace.html),
+  // прелоадер может зависнуть навсегда. Скрываем его через 2.5с автоматически,
+  // чтобы пользователь всегда видел контент. main.js при наличии скроет быстрее.
+  function hidePreloader() {
+    var pl = document.getElementById("preloader");
+    if (pl) {
+      pl.classList.add("is-hidden");
+      setTimeout(function () { if (pl && pl.parentNode) pl.parentNode.removeChild(pl); }, 600);
+    }
+  }
+  // Скрываем по window load (документ загружен) или по таймауту — что раньше.
+  if (document.readyState === "complete") {
+    setTimeout(hidePreloader, 1500);
+  } else {
+    window.addEventListener("load", function () { setTimeout(hidePreloader, 1500); });
+  }
+  // Жёсткий таймаут на случай, если load не сработает
+  setTimeout(hidePreloader, 3000);
 })();

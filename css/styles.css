@@ -53,7 +53,7 @@ body {
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
   overscroll-behavior-y: none;
-  touch-action: pan-y;
+  touch-action: auto;
   cursor: auto;
   width: 100%;
   max-width: 100%;

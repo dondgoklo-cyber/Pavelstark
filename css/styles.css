@@ -1494,3 +1494,101 @@ body.is-locked { overflow: hidden; }
   .mp-filters__row { grid-template-columns: repeat(3, 1fr); }
   .mp-hero__title { font-size: 40px; }
 }
+
+/* ============================================================
+   ГОРЯЩИЕ ПРЕДЛОЖЕНИЯ + маркетинговые карточки (v9)
+   ============================================================ */
+
+/* Старая цена и блок действий в карточках курсов */
+.course-card__old {
+  font-size: 13px; color: var(--muted-dark); text-decoration: line-through; margin-left: 6px;
+}
+.course-card__prices {
+  display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px;
+}
+.course-card__actions {
+  display: flex; gap: 8px;
+}
+.course-card__actions .btn { flex: 1; }
+
+/* Секция горящих предложений */
+.hot-section { background: linear-gradient(135deg, var(--bg-deep), var(--bg-deeper)); }
+.hot-section .section__lead { max-width: 680px; margin: 8px auto 0; opacity: 0.85; }
+
+/* Таймер обратного отсчёта */
+.hot-timer {
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  margin: 24px auto 40px; flex-wrap: wrap;
+}
+.hot-timer__item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: rgba(255,215,0,0.08); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 16px; min-width: 72px;
+}
+.hot-timer__num {
+  font-family: var(--ff-head); font-size: 28px; font-weight: 700; color: var(--gold);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+.hot-timer__label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+}
+.hot-timer__sep {
+  font-size: 28px; font-weight: 700; color: var(--gold); opacity: 0.4; align-self: flex-start; margin-top: 4px;
+}
+
+/* Сетка горящих карточек */
+.hot-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+}
+
+/* Горящая карточка */
+.hot-card {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius-card);
+  padding: 20px; overflow: hidden;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.hot-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #FF4757, #FFD700);
+}
+.hot-card:hover {
+  transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); border-color: rgba(255,71,87,0.4);
+}
+.hot-card__top {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.hot-card__img { width: 48px; height: 48px; opacity: 0.9; }
+.hot-card__discount {
+  font-size: 14px; font-weight: 700; color: var(--white);
+  background: #FF4757; padding: 4px 12px; border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(255,71,87,0.4);
+}
+.hot-card__badge {
+  display: inline-block; font-size: 12px; font-weight: 600; color: var(--gold-dim);
+  background: rgba(255,215,0,0.12); padding: 4px 10px; border-radius: 20px;
+  margin-bottom: 8px; align-self: flex-start;
+}
+.hot-card__title {
+  font-family: var(--ff-body); font-weight: 700; font-size: 16px; line-height: 1.3;
+  color: var(--white); margin-bottom: 4px;
+}
+.hot-card__category { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.hot-card__prices { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+.hot-card__price { font-size: 22px; font-weight: 700; color: var(--gold); }
+.hot-card__old { font-size: 15px; color: var(--muted-dark); text-decoration: line-through; }
+.hot-card__actions { display: flex; gap: 8px; margin-top: auto; }
+.hot-card__actions .btn { flex: 1; }
+
+/* Футер горящей секции */
+.hot-foot {
+  text-align: center; margin-top: 32px;
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+  .hot-timer__item { min-width: 56px; padding: 10px 12px; }
+  .hot-timer__num { font-size: 22px; }
+  .hot-timer__sep { font-size: 22px; }
+  .course-card__actions, .hot-card__actions { flex-direction: column; }
+}

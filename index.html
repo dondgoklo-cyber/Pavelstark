@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="apple-touch-icon" href="img/favicon.svg" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -174,11 +174,143 @@
     </section>
 
     <!-- ====== COURSES ====== -->
+
+    <!-- ====== HOT DEALS (горящие предложения) ====== -->
+    <section class="section section--dark hot-section" id="hot" aria-labelledby="hot-title">
+      <div class="container">
+        <header class="section__head reveal" data-reveal>
+          <p class="section__eyebrow">🔥 Горящие предложения</p>
+          <h2 class="section__title" id="hot-title">Скидки до 40% — успейте купить</h2>
+          <p class="section__lead">Предложения с ограниченным сроком действия. Цены действуют только до конца акции.</p>
+        </header>
+
+        <!-- Таймер обратного отсчёта -->
+        <div class="hot-timer reveal" data-reveal id="hot-timer" aria-label="До конца акции">
+          <div class="hot-timer__item"><span class="hot-timer__num" id="ht-days">02</span><span class="hot-timer__label">дней</span></div>
+          <div class="hot-timer__sep">:</div>
+          <div class="hot-timer__item"><span class="hot-timer__num" id="ht-hours">14</span><span class="hot-timer__label">часов</span></div>
+          <div class="hot-timer__sep">:</div>
+          <div class="hot-timer__item"><span class="hot-timer__num" id="ht-mins">32</span><span class="hot-timer__label">минут</span></div>
+          <div class="hot-timer__sep">:</div>
+          <div class="hot-timer__item"><span class="hot-timer__num" id="ht-secs">00</span><span class="hot-timer__label">секунд</span></div>
+        </div>
+
+        <div class="hot-grid">
+          <article class="hot-card reveal" data-reveal>
+            <div class="hot-card__top">
+              <img src="img/course-ot.svg" alt="" class="hot-card__img" loading="lazy" />
+              <span class="hot-card__discount">-38%</span>
+            </div>
+            <span class="hot-card__badge">⚡ Осталось 12 мест</span>
+            <h3 class="hot-card__title">Охрана труда (руководители и специалисты)</h3>
+            <p class="hot-card__category">Охрана труда</p>
+            <div class="hot-card__prices">
+              <span class="hot-card__price">4 900 ₽</span>
+              <span class="hot-card__old">7 900 ₽</span>
+            </div>
+            <div class="hot-card__actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HOT-%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0-%D1%82%22%2C%20%22title%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%20%28%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B8%20%D0%B8%20%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D1%8B%29%22%2C%20%22price%22%3A%204900%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button>
+              <button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HOT-%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0-%D1%82%22%2C%20%22title%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%20%28%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B8%20%D0%B8%20%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D1%8B%29%22%2C%20%22price%22%3A%204900%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button>
+            </div>
+          </article>
+          <article class="hot-card reveal" data-reveal>
+            <div class="hot-card__top">
+              <img src="img/course-fire.svg" alt="" class="hot-card__img" loading="lazy" />
+              <span class="hot-card__discount">-41%</span>
+            </div>
+            <span class="hot-card__badge">⚡ Хит продаж</span>
+            <h3 class="hot-card__title">Пожарно-технический минимум (ПТМ)</h3>
+            <p class="hot-card__category">Пожарная безопасность</p>
+            <div class="hot-card__prices">
+              <span class="hot-card__price">2 300 ₽</span>
+              <span class="hot-card__old">3 900 ₽</span>
+            </div>
+            <div class="hot-card__actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HOT-%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%BE-%22%2C%20%22title%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%BE-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D1%83%D0%BC%20%28%D0%9F%D0%A2%D0%9C%29%22%2C%20%22price%22%3A%202300%2C%20%22category%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%20/%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%22%7D">В корзину</button>
+              <button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HOT-%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%BE-%22%2C%20%22title%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%BE-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D1%83%D0%BC%20%28%D0%9F%D0%A2%D0%9C%29%22%2C%20%22price%22%3A%202300%2C%20%22category%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%20/%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%22%7D">Купить</button>
+            </div>
+          </article>
+          <article class="hot-card reveal" data-reveal>
+            <div class="hot-card__top">
+              <img src="img/course-electric.svg" alt="" class="hot-card__img" loading="lazy" />
+              <span class="hot-card__discount">-34%</span>
+            </div>
+            <span class="hot-card__badge">⚡ Осталось 8 мест</span>
+            <h3 class="hot-card__title">Электробезопасность IV группа (до 1000 В)</h3>
+            <p class="hot-card__category">Электробезопасность</p>
+            <div class="hot-card__prices">
+              <span class="hot-card__price">3 900 ₽</span>
+              <span class="hot-card__old">5 900 ₽</span>
+            </div>
+            <div class="hot-card__actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HOT-%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20IV%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%20%28%D0%B4%D0%BE%201000%20%D0%92%29%22%2C%20%22price%22%3A%203900%2C%20%22category%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button>
+              <button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HOT-%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20IV%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%20%28%D0%B4%D0%BE%201000%20%D0%92%29%22%2C%20%22price%22%3A%203900%2C%20%22category%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button>
+            </div>
+          </article>
+          <article class="hot-card reveal" data-reveal>
+            <div class="hot-card__top">
+              <img src="img/course-buh.svg" alt="" class="hot-card__img" loading="lazy" />
+              <span class="hot-card__discount">-34%</span>
+            </div>
+            <span class="hot-card__badge">⚡ Бестселлер</span>
+            <h3 class="hot-card__title">Бухгалтерский учёт по ФСБУ 2024</h3>
+            <p class="hot-card__category">Бухгалтерия и финансы</p>
+            <div class="hot-card__prices">
+              <span class="hot-card__price">5 900 ₽</span>
+              <span class="hot-card__old">8 900 ₽</span>
+            </div>
+            <div class="hot-card__actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HOT-%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%22%2C%20%22title%22%3A%20%22%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20%D1%83%D1%87%D1%91%D1%82%20%D0%BF%D0%BE%20%D0%A4%D0%A1%D0%91%D0%A3%202024%22%2C%20%22price%22%3A%205900%2C%20%22category%22%3A%20%22%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D0%B8%D1%8F%20%D0%B8%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D1%8B%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button>
+              <button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HOT-%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%22%2C%20%22title%22%3A%20%22%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20%D1%83%D1%87%D1%91%D1%82%20%D0%BF%D0%BE%20%D0%A4%D0%A1%D0%91%D0%A3%202024%22%2C%20%22price%22%3A%205900%2C%20%22category%22%3A%20%22%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D0%B8%D1%8F%20%D0%B8%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D1%8B%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button>
+            </div>
+          </article>
+          <article class="hot-card reveal" data-reveal>
+            <div class="hot-card__top">
+              <img src="img/course-go.svg" alt="" class="hot-card__img" loading="lazy" />
+              <span class="hot-card__discount">-35%</span>
+            </div>
+            <span class="hot-card__badge">⚡ Осталось 5 мест</span>
+            <h3 class="hot-card__title">ГО и ЧС для руководителей</h3>
+            <p class="hot-card__category">Охрана труда</p>
+            <div class="hot-card__prices">
+              <span class="hot-card__price">4 400 ₽</span>
+              <span class="hot-card__old">6 800 ₽</span>
+            </div>
+            <div class="hot-card__actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HOT-%D0%93%D0%9E-%D0%B8-%D0%A7%D0%A1-%22%2C%20%22title%22%3A%20%22%D0%93%D0%9E%20%D0%B8%20%D0%A7%D0%A1%20%D0%B4%D0%BB%D1%8F%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%22%2C%20%22price%22%3A%204400%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button>
+              <button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HOT-%D0%93%D0%9E-%D0%B8-%D0%A7%D0%A1-%22%2C%20%22title%22%3A%20%22%D0%93%D0%9E%20%D0%B8%20%D0%A7%D0%A1%20%D0%B4%D0%BB%D1%8F%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%22%2C%20%22price%22%3A%204400%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button>
+            </div>
+          </article>
+          <article class="hot-card reveal" data-reveal>
+            <div class="hot-card__top">
+              <img src="img/course-mba.svg" alt="" class="hot-card__img" loading="lazy" />
+              <span class="hot-card__discount">-25%</span>
+            </div>
+            <span class="hot-card__badge">⚡ Премиум</span>
+            <h3 class="hot-card__title">Менеджмент (MBA-модуль, интенсив)</h3>
+            <p class="hot-card__category">Менеджмент и управление</p>
+            <div class="hot-card__prices">
+              <span class="hot-card__price">59 000 ₽</span>
+              <span class="hot-card__old">79 000 ₽</span>
+            </div>
+            <div class="hot-card__actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HOT-%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%22%2C%20%22title%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%28MBA-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%29%22%2C%20%22price%22%3A%2059000%2C%20%22category%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">В корзину</button>
+              <button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HOT-%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%22%2C%20%22title%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%28MBA-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%29%22%2C%20%22price%22%3A%2059000%2C%20%22category%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">Купить</button>
+            </div>
+          </article>
+        </div>
+        <div class="hot-foot reveal" data-reveal>
+          <a href="marketplace.html" class="btn btn--ghost magnetic" data-magnetic>Все 500+ программ →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="courses" aria-labelledby="courses-title">
       <div class="container">
         <header class="section__head reveal" data-reveal>
-          <p class="section__eyebrow">Курсы</p>
-          <h2 class="section__title" id="courses-title">Популярные курсы</h2>
+          <p class="section__eyebrow">Каталог</p>
+          <h2 class="section__title" id="courses-title">Популярные программы</h2>
+          <p class="section__lead" style="margin-top:8px;max-width:680px;margin-left:auto;margin-right:auto">Добавляйте программы в корзину и оформляйте заказ. Полный каталог из 500+ программ — на странице <a href="marketplace.html" style="color:var(--gold);text-decoration:underline">маркетплейса</a>.</p>
         </header>
         <div class="courses">
           <article class="course-card reveal" data-reveal data-tilt>
@@ -186,80 +318,80 @@
             <span class="course-card__tag course-card__tag--hit">Хит</span>
             <h3 class="course-card__title">Охрана труда</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>40 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">3 900 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">3 900 ₽</span><span class="course-card__old">4 900 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0-%D1%82%D1%80%D1%83%22%2C%20%22title%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22price%22%3A%203900%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0-%D1%82%D1%80%D1%83%22%2C%20%22title%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22price%22%3A%203900%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-buh.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--diploma">Диплом</span>
             <h3 class="course-card__title">Профпереподготовка: Бухучёт</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>260 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">24 900 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">24 900 ₽</span><span class="course-card__old">29 900 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%9F%D1%80%D0%BE%D1%84%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%22%2C%20%22title%22%3A%20%22%D0%9F%D1%80%D0%BE%D1%84%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%3A%20%D0%91%D1%83%D1%85%D1%83%D1%87%D1%91%D1%82%22%2C%20%22price%22%3A%2024900%2C%20%22category%22%3A%20%22%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D0%B8%D1%8F%20%D0%B8%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D1%8B%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%9F%D1%80%D0%BE%D1%84%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%22%2C%20%22title%22%3A%20%22%D0%9F%D1%80%D0%BE%D1%84%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%3A%20%D0%91%D1%83%D1%85%D1%83%D1%87%D1%91%D1%82%22%2C%20%22price%22%3A%2024900%2C%20%22category%22%3A%20%22%D0%91%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D0%B8%D1%8F%20%D0%B8%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D1%8B%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-fire.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">Пожарная безопасность (ПТМ)</h3>
             <ul class="course-card__meta"><li>Очно / онлайн</li><li>16 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">2 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">2 500 ₽</span><span class="course-card__old">3 200 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F-%D0%B1%22%2C%20%22title%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%28%D0%9F%D0%A2%D0%9C%29%22%2C%20%22price%22%3A%202500%2C%20%22category%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%20/%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F-%D0%B1%22%2C%20%22title%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%28%D0%9F%D0%A2%D0%9C%29%22%2C%20%22price%22%3A%202500%2C%20%22category%22%3A%20%22%D0%9F%D0%BE%D0%B6%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%20/%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-electric.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--cert">Удостоверение</span>
             <h3 class="course-card__title">Электромонтёр 4 разряда</h3>
             <ul class="course-card__meta"><li>Очно</li><li>120 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">12 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">12 000 ₽</span><span class="course-card__old">14 500 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BC%D0%BE%D0%BD%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BC%D0%BE%D0%BD%D1%82%D1%91%D1%80%204%20%D1%80%D0%B0%D0%B7%D1%80%D1%8F%D0%B4%D0%B0%22%2C%20%22price%22%3A%2012000%2C%20%22category%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BC%D0%BE%D0%BD%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BC%D0%BE%D0%BD%D1%82%D1%91%D1%80%204%20%D1%80%D0%B0%D0%B7%D1%80%D1%8F%D0%B4%D0%B0%22%2C%20%22price%22%3A%2012000%2C%20%22category%22%3A%20%22%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-go.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">ГО и ЧС для руководителей</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>72 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">5 400 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">5 400 ₽</span><span class="course-card__old">6 800 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%93%D0%9E-%D0%B8-%D0%A7%D0%A1-%D0%B4%D0%BB%22%2C%20%22title%22%3A%20%22%D0%93%D0%9E%20%D0%B8%20%D0%A7%D0%A1%20%D0%B4%D0%BB%D1%8F%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%22%2C%20%22price%22%3A%205400%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%93%D0%9E-%D0%B8-%D0%A7%D0%A1-%D0%B4%D0%BB%22%2C%20%22title%22%3A%20%22%D0%93%D0%9E%20%D0%B8%20%D0%A7%D0%A1%20%D0%B4%D0%BB%D1%8F%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%22%2C%20%22price%22%3A%205400%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-mba.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--premium">Премиум</span>
             <h3 class="course-card__title">Менеджмент (MBA-модуль)</h3>
             <ul class="course-card__meta"><li>Очно</li><li>520 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">79 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">79 000 ₽</span><span class="course-card__old">95 000 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%22%2C%20%22title%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%28MBA-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%29%22%2C%20%22price%22%3A%2079000%2C%20%22category%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%22%2C%20%22title%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%28MBA-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%29%22%2C%20%22price%22%3A%2079000%2C%20%22category%22%3A%20%22%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B8%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-ot.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--hit">Хит</span>
             <h3 class="course-card__title">Экология и ПЭК</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>72 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">6 200 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">6 200 ₽</span><span class="course-card__old">7 500 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%AD%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%B8%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F%20%D0%B8%20%D0%9F%D0%AD%D0%9A%22%2C%20%22price%22%3A%206200%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%AD%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%B8%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F%20%D0%B8%20%D0%9F%D0%AD%D0%9A%22%2C%20%22price%22%3A%206200%2C%20%22category%22%3A%20%22%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0%20%D1%82%D1%80%D1%83%D0%B4%D0%B0%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-buh.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--diploma">Диплом</span>
             <h3 class="course-card__title">Кадровое делопроизводство</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>256 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">22 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">22 500 ₽</span><span class="course-card__old">27 000 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%9A%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B4%22%2C%20%22title%22%3A%20%22%D0%9A%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%BE%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%22%2C%20%22price%22%3A%2022500%2C%20%22category%22%3A%20%22%D0%9F%D1%80%D0%B0%D0%B2%D0%BE%20%D0%B8%20%D0%BA%D0%B0%D0%B4%D1%80%D1%8B%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%9A%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B4%22%2C%20%22title%22%3A%20%22%D0%9A%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%BE%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%22%2C%20%22price%22%3A%2022500%2C%20%22category%22%3A%20%22%D0%9F%D1%80%D0%B0%D0%B2%D0%BE%20%D0%B8%20%D0%BA%D0%B0%D0%B4%D1%80%D1%8B%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-fire.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">Энергобезопасность (V-IV гр.)</h3>
             <ul class="course-card__meta"><li>Очно / онлайн</li><li>72 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">4 800 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">4 800 ₽</span><span class="course-card__old">5 900 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%28V-IV%20%D0%B3%D1%80.%29%22%2C%20%22price%22%3A%204800%2C%20%22category%22%3A%20%22%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D0%96%D0%9A%D0%A5%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%20/%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%22%2C%20%22title%22%3A%20%22%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%28V-IV%20%D0%B3%D1%80.%29%22%2C%20%22price%22%3A%204800%2C%20%22category%22%3A%20%22%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D0%96%D0%9A%D0%A5%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%20/%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-electric.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--cert">Удостоверение</span>
             <h3 class="course-card__title">Сварщик НАКС</h3>
             <ul class="course-card__meta"><li>Очно</li><li>160 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">18 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">18 500 ₽</span><span class="course-card__old">22 000 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%A1%D0%B2%D0%B0%D1%80%D1%89%D0%B8%D0%BA-%D0%9D%D0%90%22%2C%20%22title%22%3A%20%22%D0%A1%D0%B2%D0%B0%D1%80%D1%89%D0%B8%D0%BA%20%D0%9D%D0%90%D0%9A%D0%A1%22%2C%20%22price%22%3A%2018500%2C%20%22category%22%3A%20%22%D0%9F%D1%80%D0%BE%D0%BC%D1%8B%D1%88%D0%BB%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%A1%D0%B2%D0%B0%D1%80%D1%89%D0%B8%D0%BA-%D0%9D%D0%90%22%2C%20%22title%22%3A%20%22%D0%A1%D0%B2%D0%B0%D1%80%D1%89%D0%B8%D0%BA%20%D0%9D%D0%90%D0%9A%D0%A1%22%2C%20%22price%22%3A%2018500%2C%20%22category%22%3A%20%22%D0%9F%D1%80%D0%BE%D0%BC%D1%8B%D1%88%D0%BB%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-go.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">Логистика и ВЭД</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>300 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">26 800 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">26 800 ₽</span><span class="course-card__old">32 000 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0-%22%2C%20%22title%22%3A%20%22%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D0%92%D0%AD%D0%94%22%2C%20%22price%22%3A%2026800%2C%20%22category%22%3A%20%22%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0-%22%2C%20%22title%22%3A%20%22%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D0%92%D0%AD%D0%94%22%2C%20%22price%22%3A%2026800%2C%20%22category%22%3A%20%22%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%22%2C%20%22format%22%3A%20%22%D0%94%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-mba.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--premium">Премиум</span>
             <h3 class="course-card__title">IT-менеджмент (CIO)</h3>
             <ul class="course-card__meta"><li>Очно</li><li>480 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">69 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><div class="course-card__prices"><span class="course-card__price">69 000 ₽</span><span class="course-card__old">82 000 ₽</span></div><div class="course-card__actions"><button type="button" class="btn btn--ghost btn--sm" data-add-cart data-program="%7B%22id%22%3A%20%22HP-IT-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%22%2C%20%22title%22%3A%20%22IT-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%28CIO%29%22%2C%20%22price%22%3A%2069000%2C%20%22category%22%3A%20%22IT%20%D0%B8%20%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">В корзину</button><button type="button" class="btn btn--primary btn--sm" data-buy-now data-program="%7B%22id%22%3A%20%22HP-IT-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%22%2C%20%22title%22%3A%20%22IT-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%BC%D0%B5%D0%BD%D1%82%20%28CIO%29%22%2C%20%22price%22%3A%2069000%2C%20%22category%22%3A%20%22IT%20%D0%B8%20%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%22%2C%20%22format%22%3A%20%22%D0%9E%D1%87%D0%BD%D0%BE%22%7D">Купить</button></div></div>
           </article>
         </div>
       </div>
@@ -579,7 +711,7 @@
           <h2 class="cta-strip__title" id="cta-title">Готовы начать обучение?</h2>
           <p class="cta-strip__text">Оставьте заявку сегодня и получите скидку 10% на любой курс.</p>
         </div>
-        <a href="contacts.html#enroll" class="btn btn--primary btn--lg magnetic" data-magnetic>Записаться со скидкой</a>
+        <a href="marketplace.html" class="btn btn--primary btn--lg magnetic" data-magnetic>В каталог со скидкой →</a>
       </div>
     </section>
 
@@ -658,8 +790,44 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <script src="js/components.js?v=8" defer></script>
-  <script src="js/main.js?v=8" defer></script>
-  <script src="js/cart.js?v=8" defer></script>
+  <script src="js/components.js?v=9" defer></script>
+  <script src="js/main.js?v=9" defer></script>
+  <script src="js/cart.js?v=9" defer></script>
+  <script>
+    (function(){
+      // Таймер до конца акции: 2 дня 14ч 32м от загрузки + хранение в localStorage
+      var KEY = "hot_deadline_v1";
+      function getDeadline(){
+        var saved = null;
+        try { saved = localStorage.getItem(KEY); } catch(e){}
+        if (saved) { var t = parseInt(saved,10); if (t > Date.now()) return t; }
+        var dl = Date.now() + (2*24*60*60*1000) + (14*60*60*1000) + (32*60*1000);
+        try { localStorage.setItem(KEY, String(dl)); } catch(e){}
+        return dl;
+      }
+      var deadline = getDeadline();
+      function pad(n){ return n < 10 ? "0"+n : String(n); }
+      function tick(){
+        var diff = deadline - Date.now();
+        if (diff <= 0) {
+          // Перезапускаем акцию
+          try { localStorage.removeItem(KEY); } catch(e){}
+          deadline = getDeadline();
+          diff = deadline - Date.now();
+        }
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        var el;
+        if ((el = document.getElementById("ht-days"))) el.textContent = pad(d);
+        if ((el = document.getElementById("ht-hours"))) el.textContent = pad(h);
+        if ((el = document.getElementById("ht-mins"))) el.textContent = pad(m);
+        if ((el = document.getElementById("ht-secs"))) el.textContent = pad(s);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
 </body>
 </html>

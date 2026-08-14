@@ -53,6 +53,41 @@
     });
   }
 
+
+  /* ============================================================
+     16. RIPPLE EFFECT на кнопках (визуальный отклик клика)
+     ============================================================ */
+  function initRipple() {
+    document.querySelectorAll(".btn").forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        if (prefersReducedMotion) return;
+        const ripple = document.createElement("span");
+        ripple.className = "ripple";
+        const rect = btn.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + "px";
+        ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+        ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+        btn.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+  }
+
+  /* ============================================================
+     17. HOVER RADIAL FOLLOW — подсветка карточек за курсором
+     ============================================================ */
+  function initHoverFollow() {
+    if (isTouch || prefersReducedMotion) return;
+    document.querySelectorAll(".course-card, .feature-card, .teacher, .benefit, .news-card").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%");
+        card.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%");
+      });
+    });
+  }
+
   function initPreloader() {
     const pl = document.getElementById("preloader");
     if (!pl) return;
@@ -288,7 +323,7 @@
   }
 
   function initCounters(instant) {
-    const stats = document.querySelectorAll(".stat__value[data-count]");
+    const stats = document.querySelectorAll(".stat__value[data-count], .license__stat-value[data-count]");
     if (!stats.length) return;
     const animate = (el) => {
       const target = parseInt(el.dataset.count, 10) || 0;
@@ -497,6 +532,8 @@
     initForm();
     initMagnetic();
     initFastClick();
+    initRipple();
+    initHoverFollow();
     initPreventDoubleTap();
   });
 })();

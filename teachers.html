@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A2332" />
+  <title>Преподаватели — Академия ДПО</title>
+  <meta name="description" content="Преподаватели-практики Академии ДПО: эксперты с опытом 10+ лет." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <div data-header></div>
+  <script type="application/ld+json" data-schema-organization></script>
+  <main>
+    <section class="page-header" id="top">
+      <div class="container">
+        <div class="page-header__inner">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span>Преподаватели</span>
+      </nav>
+          <p class="page-header__eyebrow">Команда</p>
+          <h1 class="page-header__title">Преподаватели-практики</h1>
+          <p class="page-header__lead">Эксперты с опытом 10+ лет, действующие специалисты отрасли. Живые кейсы, а не сухая теория.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="teachers reveal" data-reveal data-teachers-grid></div>
+      </div>
+    </section>
+    <section class="section section--accent">
+      <div class="container">
+        <div class="cta-band reveal" data-reveal>
+          <h2 class="cta-band__title">Готовы записаться?</h2>
+          <p class="cta-band__text">Оставьте заявку — менеджер перезвонит в течение 15 минут.</p>
+          <a href="contacts.html#enroll" class="btn btn--primary">Записаться на обучение</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/geo-data.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+    <script>
+    document.addEventListener("academy:components-ready", function () {
+      var teachers = [
+        { name: "Иванов А.М.", role: "Охрана труда", initials: "ИМ", bio: "Инженер по ОТ с 15-летним стажем. Аудитор СМК." },
+        { name: "Петрова Е.С.", role: "Бухучёт", initials: "ПЕ", bio: "Главный бухгалтер, преподаватель с 12-летним опытом." },
+        { name: "Сидоров К.В.", role: "Электромонтёр", initials: "СК", bio: "Мастер производственного обучения, 5-й разряд." },
+        { name: "Кузнецова О.Н.", role: "Менеджмент", initials: "КО", bio: "MBA, бизнес-тренер, консультант по управлению." }
+      ];
+      var grid = document.querySelector("[data-teachers-grid]");
+      if (grid) {
+        grid.innerHTML = teachers.map(function (t) {
+          return '<article class="teacher-card">' +
+            '<div class="teacher-card__avatar">' + t.initials + "</div>" +
+            '<h3 class="teacher-card__name">' + t.name + "</h3>" +
+            '<p class="teacher-card__role">' + t.role + "</p>" +
+            '<p class="teacher-card__bio">' + t.bio + "</p></article>";
+        }).join("");
+      }
+    });
+    </script>
+

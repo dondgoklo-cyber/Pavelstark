@@ -436,5 +436,54 @@
     initSwipers();
     initTilt();
     initForm();
+    initSchema();
   });
 })();
+
+  /* ============================================================
+     10. SCHEMA.ORG — микроразметка (читает из config.js)
+     Заполняет <script type="application/ld+json" data-schema-organization>
+     ============================================================ */
+  function initSchema() {
+    const slot = document.querySelector("[data-schema-organization]");
+    if (!slot) return;
+    const CFG = window.ACADEMY_CONFIG;
+    if (!CFG) return;
+    const { SITE, COURSES, STATS } = CFG;
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      name: SITE.name,
+      description: document.querySelector('meta[name="description"]')?.content || "",
+      telephone: SITE.phoneDisplay,
+      email: SITE.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: SITE.address,
+        addressLocality: SITE.address.split(",")[0] || "",
+        addressCountry: "RU"
+      },
+      url: location.origin + location.pathname,
+      foundingDate: new Date().getFullYear() - (STATS.find((s) => s.suffix.includes("лет"))?.value || 12) + "",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: String(STATS.find((s) => s.label.includes("выпускник"))?.value || 15000)
+      },
+      hasCourse: COURSES.map((c) => ({
+        "@type": "Course",
+        name: c.title,
+        description: c.description,
+        provider: { "@type": "Organization", name: SITE.name },
+        offers: {
+          "@type": "Offer",
+          price: String(c.price),
+          priceCurrency: "RUB",
+          availability: "https://schema.org/InStock"
+        }
+      }))
+    };
+
+    slot.textContent = JSON.stringify(schema, null, 2);
+  }

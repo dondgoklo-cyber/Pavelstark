@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A2332" />
+  <title>Блог — Академия ДПО</title>
+  <meta name="description" content="Блог Академии ДПО: статьи о ДПО, законодательстве, карьерных путях." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <div data-header></div>
+  <script type="application/ld+json" data-schema-organization></script>
+  <main>
+    <section class="page-header" id="top">
+      <div class="container">
+        <div class="page-header__inner">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span>Блог</span>
+      </nav>
+          <p class="page-header__eyebrow">Блог</p>
+          <h1 class="page-header__title">Статьи и новости</h1>
+          <p class="page-header__lead">Полезные материалы о ДПО, изменениях в законодательстве и карьерных путях.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid reveal" data-reveal data-blog-grid></div>
+      </div>
+    </section>
+    <section class="section section--accent">
+      <div class="container">
+        <div class="cta-band reveal" data-reveal>
+          <h2 class="cta-band__title">Готовы записаться?</h2>
+          <p class="cta-band__text">Оставьте заявку — менеджер перезвонит в течение 15 минут.</p>
+          <a href="contacts.html#enroll" class="btn btn--primary">Записаться на обучение</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/geo-data.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+    <script>
+    document.addEventListener("academy:components-ready", function () {
+      var posts = [
+        { date: "15 января 2024", title: "Изменения в охране труда на 2024 год", excerpt: "Что изменилось в законодательстве по охране труда и как это влияет на обучение.", cover: "ОТ" },
+        { date: "10 января 2024", title: "Как выбрать курс профпереподготовки", excerpt: "Чем отличается переподготовка от повышения квалификации и как выбрать программу.", cover: "↻" },
+        { date: "5 января 2024", title: "ФИС ФРДО: как проверить документ", excerpt: "Пошаговая инструкция, как убедиться, что документ внесён в реестр.", cover: "ФР" },
+        { date: "28 декабря 2023", title: "Рабочие профессии: востребованность 2024", excerpt: "Анализ рынка труда: какие специальности будут в спросе.", cover: "⚙" }
+      ];
+      var grid = document.querySelector("[data-blog-grid]");
+      if (grid) {
+        grid.innerHTML = posts.map(function (p) {
+          return '<article class="blog-card"><div class="blog-card__cover">' + p.cover + "</div>" +
+            '<div class="blog-card__body"><p class="blog-card__date">' + p.date + "</p>" +
+            '<h3 class="blog-card__title">' + p.title + "</h3>" +
+            '<p class="blog-card__excerpt">' + p.excerpt + "</p>" +
+            '<a href="#" class="btn btn--ghost btn--sm">Читать</a></div></article>";
+        }).join("");
+      }
+    });
+    </script>
+

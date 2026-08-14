@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A2332" />
+  <title data-page-title>Обучение в вашем городе — Академия ДПО</title>
+  <meta name="description" content="Дополнительное профессиональное образование в вашем городе. Очно и дистанционно. Лицензия, документ государственного образца, внесение в ФИС ФРДО." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <div data-header></div>
+  <script type="application/ld+json" data-schema-organization></script>
+
+  <main>
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-header" id="top">
+      <div class="container">
+        <div class="page-header__inner">
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a>
+            <span class="breadcrumbs__sep">/</span>
+            <span data-breadcrumb-city>Города</span>
+          </nav>
+          <p class="page-header__eyebrow">География обучения</p>
+          <h1 class="page-header__title" data-city-title>Обучение в вашем городе</h1>
+          <p class="page-header__lead" data-city-lead>Академия ДПО работает в 30 городах России. Выберите город, чтобы узнать адрес филиала, расписание и доступные программы.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CITY CONTENT ============ -->
+    <section class="section" id="city-content">
+      <div class="container">
+        <div class="city-grid">
+          <!-- Карточка контактов -->
+          <aside class="city-card" data-city-card>
+            <div class="city-card__row">
+              <span class="city-card__label">Город</span>
+              <span class="city-card__value" data-city-name>—</span>
+            </div>
+            <div class="city-card__row">
+              <span class="city-card__label">Регион</span>
+              <span class="city-card__value" data-city-region>—</span>
+            </div>
+            <div class="city-card__row">
+              <span class="city-card__label">Адрес</span>
+              <span class="city-card__value" data-city-address>—</span>
+            </div>
+            <div class="city-card__row">
+              <span class="city-card__label">Телефон</span>
+              <span class="city-card__value" data-city-phone>—</span>
+            </div>
+            <div class="city-card__row">
+              <span class="city-card__label">Часы работы</span>
+              <span class="city-card__value" data-city-schedule>—</span>
+            </div>
+            <div class="city-card__row">
+              <span class="city-card__label">Часовой пояс</span>
+              <span class="city-card__value" data-city-tz>—</span>
+            </div>
+          </aside>
+
+          <!-- Карта -->
+          <div class="city-map" data-city-map>
+            <iframe
+              data-city-iframe
+              width="100%" height="100%"
+              style="border:0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Карта филиала"></iframe>
+          </div>
+        </div>
+
+        <!-- Доступные курсы -->
+        <header class="section__head reveal" data-reveal style="margin-top:48px">
+          <p class="section__eyebrow">Программы</p>
+          <h2 class="section__title" data-courses-title>Доступные курсы в этом городе</h2>
+        </header>
+        <div class="courses" data-city-courses></div>
+
+        <!-- CTA -->
+        <div class="cta-band reveal" data-reveal style="margin-top:48px">
+          <h2 class="cta-band__title">Готовы записаться?</h2>
+          <p class="cta-band__text">Оставьте заявку — менеджер перезвонит в течение 15 минут и подберёт программу под ваш город.</p>
+          <a href="contacts.html#enroll" class="btn btn--primary">Записаться на обучение</a>
+        </div>
+
+        <!-- Список всех городов -->
+        <header class="section__head reveal" data-reveal style="margin-top:64px">
+          <p class="section__eyebrow">Все города</p>
+          <h2 class="section__title">Выберите другой город</h2>
+        </header>
+        <div class="cities-grid" data-all-cities></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/geo-data.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Рендер содержимого страницы города -->
+  <script>
+    document.addEventListener("academy:components-ready", function () {
+      var GEO = window.ACADEMY_GEO;
+      var CFG = window.ACADEMY_CONFIG;
+      if (!GEO || !CFG) return;
+
+      function esc(s) { var d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
+
+      var city = GEO.getCityFromUrl() || GEO.findCity(GEO.defaultSlug) || GEO.cities[0];
+
+      /* Заголовок и хлебные крошки */
+      var titleEl = document.querySelector("[data-city-title]");
+      var leadEl = document.querySelector("[data-city-lead]");
+      var bcEl = document.querySelector("[data-breadcrumb-city]");
+      var pageTitle = document.querySelector("[data-page-title]");
+      if (titleEl) titleEl.textContent = "Обучение в городе " + city.name;
+      if (bcEl) bcEl.textContent = city.name;
+      if (pageTitle) pageTitle.textContent = city.name + " — обучение и курсы ДПО — Академия ДПО";
+
+      /* Карточка контактов */
+      var setVal = function (sel, val) { var el = document.querySelector(sel); if (el) el.innerHTML = val; };
+      setVal("[data-city-name]", esc(city.name));
+      setVal("[data-city-region]", esc(city.region));
+      setVal("[data-city-address]", esc(city.address) + (city.metro ? " (" + esc(city.metro) + ")" : ""));
+      setVal("[data-city-phone]", '<a href="tel:' + esc(city.phone.replace(/[^+\d]/g, "")) + '">' + esc(city.phone) + "</a>");
+      setVal("[data-city-schedule]", esc(city.schedule));
+      setVal("[data-city-tz]", esc(city.timezone));
+
+      /* Карта ( Яндекс.Карты iframe по координатам ) */
+      var iframe = document.querySelector("[data-city-iframe]");
+      if (iframe) {
+        var ll = city.coords.lon + "%2C" + city.coords.lat;
+        iframe.src = "https://yandex.ru/map-widget/v1/?ll=" + ll + "&z=14&pt=" + ll + ",pm2rdm";
+      }
+
+      /* Доступные курсы в городе */
+      var coursesTitle = document.querySelector("[data-courses-title]");
+      if (coursesTitle) coursesTitle.textContent = "Курсы в городе " + city.name;
+      var coursesContainer = document.querySelector("[data-city-courses]");
+      if (coursesContainer) {
+        var cityCourses = GEO.coursesForCity(city);
+        if (cityCourses.length) {
+          if (window.ACADEMY_COMPONENTS) {
+            window.ACADEMY_COMPONENTS.renderCourses(coursesContainer, function (c) {
+              return cityCourses.indexOf(c) !== -1;
+            });
+          }
+        } else {
+          coursesContainer.innerHTML = '<p style="color:var(--muted)">В этом городе доступны дистанционные программы. <a href="contacts.html#enroll">Оставьте заявку</a>.</p>';
+        }
+      }
+
+      /* Schema.org LocalBusiness для города */
+      var schemaSlot = document.querySelector("[data-schema-organization]");
+      if (schemaSlot) {
+        schemaSlot.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: CFG.SITE.name + " — " + city.name,
+          telephone: city.phone,
+          address: { "@type": "PostalAddress", streetAddress: city.address, addressLocality: city.name, addressRegion: city.region, addressCountry: "RU" },
+          geo: { "@type": "GeoCoordinates", latitude: city.coords.lat, longitude: city.coords.lon },
+          openingHours: city.schedule,
+          url: location.href
+        }, null, 2);
+      }
+
+      /* Список всех городов */
+      var allCitiesContainer = document.querySelector("[data-all-cities]");
+      if (allCitiesContainer) {
+        allCitiesContainer.innerHTML = GEO.cities.map(function (c) {
+          var courseCount = c.courseSlugs.length;
+          return '<a href="city.html?city=' + encodeURIComponent(c.slug) + '" class="city-link">' +
+            '<span class="city-link__name">' + esc(c.name) + "</span>" +
+            '<span class="city-link__meta">' + courseCount + " программ</span></a>";
+        }).join("");
+      }
+
+      /* Повторно инициализируем анимации и 3D-tilt для новых карточек */
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelectorAll(".course-card.reveal:not(.is-visible)").forEach(function (el) {
+          gsap.fromTo(el, { opacity: 0, y: 36 }, {
+            opacity: 1, y: 0, duration: 0.6, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true, onEnter: function () { el.classList.add("is-visible"); } }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

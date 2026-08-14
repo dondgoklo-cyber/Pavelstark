@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A2332" />
+  <title>Контакты — Академия ДПО</title>
+  <meta name="description" content="Контакты Академии ДПО: телефон, email, адрес. Заявка на обучение — перезвоним за 15 минут." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <div data-header></div>
+  <script type="application/ld+json" data-schema-organization></script>
+  <main>
+    <section class="page-header" id="top">
+      <div class="container">
+        <div class="page-header__inner">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span>Контакты</span>
+      </nav>
+          <p class="page-header__eyebrow">Контакты</p>
+          <h1 class="page-header__title">Свяжитесь с нами</h1>
+          <p class="page-header__lead">Оставьте заявку — менеджер перезвонит в течение 15 минут и подберёт программу.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="enroll">
+      <div class="container container--narrow">
+        <form class="form reveal" data-reveal id="enroll-form" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="name" class="form__label">Ваше имя</label>
+              <input type="text" id="name" name="name" class="form__input" placeholder="Иван" required minlength="2" autocomplete="name" />
+              <span class="form__error" data-error-for="name"></span>
+            </div>
+            <div class="form__field">
+              <label for="phone" class="form__label">Телефон</label>
+              <input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__" required autocomplete="tel" />
+              <span class="form__error" data-error-for="phone"></span>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="course" class="form__label">Курс</label>
+            <select id="course" name="course" class="form__input form__select" required data-render-course-options></select>
+            <span class="form__error" data-error-for="course"></span>
+          </div>
+          <label class="form__consent">
+            <input type="checkbox" id="consent" name="consent" required />
+            <span>Я согласен на обработку персональных данных в соответствии с <a href="policy.html" class="form__link">политикой конфиденциальности</a> (152-ФЗ).</span>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block">Отправить заявку</button>
+          <p class="form__success" id="form-success" role="status" hidden>✓ Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/geo-data.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

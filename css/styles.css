@@ -854,6 +854,176 @@ html { scrollbar-color: var(--gold-dim) var(--bg-deeper); scrollbar-width: thin;
 /* Продающий бейдж на hero-illustration */
 .hero__media::after { content: "🏆 Топ-50 курсов РФ"; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(14,20,32,0.85); backdrop-filter: blur(12px); color: var(--gold); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 600; border: 1px solid var(--line-strong); white-space: nowrap; z-index: 3; }
 
+
+/* ============================================================
+   ФИКС ВЫХОДА ТЕКСТА ЗА ЭКРАН — цикл 2 (OODA)
+   ============================================================ */
+
+/* ГЛОБАЛЬНЫЙ overflow-wrap —防止 длинные слова выходят */
+*, *::before, *::after { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
+html { -webkit-hyphens: auto; hyphens: auto; }
+
+/* body: гарантия что не шире экрана */
+body { max-width: 100vw; overflow-x: clip; }
+
+/* .container: гарантия на моб */
+.container { box-sizing: border-box; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+
+/* .hero__content: min-width: 0 в grid (чтобы дочерние не расширяли) */
+.hero__content { min-width: 0; }
+.hero__inner { min-width: 0; }
+
+/* .section: гарантия */
+.section { max-width: 100%; box-sizing: border-box; }
+.section--dark, .section--accent { max-width: 100%; }
+
+/* hero__media: overflow hidden на моб, чтобы badge не вылезали */
+@media (max-width: 767px) {
+  .hero__media { overflow: hidden; max-width: 100%; }
+  .hero__media::after { font-size: 11px; padding: 6px 12px; max-width: 90%; overflow: hidden; text-overflow: ellipsis; }
+  .hero__badge { font-size: 11px; padding: 6px 10px; max-width: 45%; }
+  .hero__badge span { display: none; }
+  .hero__badge::first-letter { font-size: 16px; }
+}
+
+/* course-card__title: гарантия переноса */
+.course-card__title { overflow-wrap: break-word; word-break: break-word; hyphens: auto; padding-right: 0; }
+.course-card__tag { max-width: calc(100% - 24px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* section__title: гарантия переноса */
+.section__title, .page-hero__title, .cta-strip__title { overflow-wrap: break-word; word-break: break-word; hyphens: auto; max-width: 100%; }
+
+/* tabs__btn: перенос на моб */
+.tabs { max-width: 100%; }
+.tabs__btn { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* nav на моб: гарантия */
+.nav { max-width: 100%; overflow-x: hidden; }
+
+/* footer: гарантия */
+.footer { max-width: 100%; overflow-x: hidden; }
+.footer__list { overflow-wrap: break-word; }
+
+/* prose: гарантия переноса */
+.prose { overflow-wrap: break-word; word-break: break-word; }
+
+/* timeline: гарантия */
+.timeline { max-width: 100%; overflow-x: hidden; }
+
+/* calc: гарантия */
+.calc { max-width: 100%; box-sizing: border-box; }
+
+/* news-card__title: перенос */
+.news-card__title, .teacher__name, .value-card__title, .benefit__title, .feature-card__title, .b2b-feature h3, .tariff__name { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
+
+/* breadcrumbs: перенос */
+.breadcrumbs { overflow-wrap: break-word; word-break: break-word; }
+
+/* Убираем cursor: none глобально на моб */
+@media (pointer: coarse) { body { cursor: auto !important; } a, button, .magnetic, input, select, label { cursor: pointer !important; } }
+
+/* Гарантия: все grid-контейнеры не шире родителя */
+.hero__inner, .features, .courses, .teachers, .benefits, .news, .values, .stats-grid, .b2b-features, .tariffs, .reviews-grid, .contacts-grid, .footer__inner, .license__inner, .b2b__inner, .cert__inner, .cta-strip__inner { max-width: 100%; box-sizing: border-box; min-width: 0; }
+
+
+/* ============================================================
+   ЦИКЛ 5: ФИНАЛЬНЫЕ ГАРАНТИИ ПРОТИВ ВЫХОДА ЗА ЭКРАН
+   ============================================================ */
+
+/* html: жёсткое ограничение */
+html { max-width: 100% !important; overflow-x: hidden !important; }
+
+/* body: жёсткое ограничение + clip */
+body { max-width: 100% !important; overflow-x: clip !important; position: relative; }
+
+/* .header: гарантия */
+.header { max-width: 100%; overflow-x: clip; }
+.header__inner { max-width: 100%; min-width: 0; }
+.header__actions { min-width: 0; flex-shrink: 1; }
+
+/* .marquee-strip: гарантия отсечения */
+.marquee-strip { max-width: 100vw; overflow: hidden; position: relative; }
+.marquee-track { will-change: transform; }
+
+/* Все flex-контейнеры: min-width: 0 для дочерних */
+.hero__cta, .course-card__footer, .review__author, .contacts-info__list li, .footer__social, .b2b__card, .cta-strip__inner, .filter-btn, .tabs { min-width: 0; }
+.hero__cta > *, .course-card__footer > *, .review__author > *, .footer__social > * { min-width: 0; flex-shrink: 1; }
+
+/* .btn: гарантия переноса длинного текста */
+.btn { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* .faq__question: перенос текста */
+.faq__question { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+.faq__question span:first-child { overflow-wrap: break-word; word-break: break-word; min-width: 0; flex: 1; }
+
+/* .license__list, .cert__list, .b2b__list: перенос */
+.license__list li, .cert__list li, .b2b__list li { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+
+/* .contacts-info__list: гарантия */
+.contacts-info__list li > div { min-width: 0; flex: 1; overflow-wrap: break-word; word-break: break-word; }
+
+/* .footer__bottom: гарантия */
+.footer__bottom { max-width: 100%; overflow-wrap: break-word; word-break: break-word; }
+
+/* .prose ul li: перенос */
+.prose ul, .prose ol { max-width: 100%; padding-left: 20px; }
+.prose li { overflow-wrap: break-word; word-break: break-word; }
+
+/* .stat-box: гарантия */
+.stat-box { overflow: hidden; word-break: break-word; }
+.stat-box__value { overflow-wrap: anywhere; }
+
+/* .license__stat: гарантия */
+.license__stat { overflow: hidden; }
+.license__stat-value { overflow-wrap: anywhere; }
+
+/* .calc__result: гарантия */
+.calc__result { overflow: hidden; max-width: 100%; }
+.calc__result-value { overflow-wrap: anywhere; }
+
+/* .tab-panel li: гарантия */
+.tab-panel li { overflow-wrap: break-word; word-break: break-word; }
+
+/* .hero__eyebrow: гарантия */
+.hero__eyebrow { max-width: 100%; overflow-wrap: break-word; }
+
+/* .hero__subtitle: гарантия */
+.hero__subtitle { overflow-wrap: break-word; word-break: break-word; }
+
+/* .page-hero__lead: гарантия */
+.page-hero__lead { overflow-wrap: break-word; word-break: break-word; }
+
+/* .section__lead: гарантия */
+.section__lead { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+
+/* .cta-strip__content: гарантия */
+.cta-strip__content { min-width: 0; overflow-wrap: break-word; }
+.cta-strip__text { overflow-wrap: break-word; word-break: break-word; }
+
+/* .review__text: гарантия */
+.review__text { overflow-wrap: break-word; word-break: break-word; }
+
+/* .teacher__bio: гарантия */
+.teacher__bio { overflow-wrap: break-word; word-break: break-word; }
+
+/* .benefit__text: гарантия */
+.benefit__text, .value-card__text, .feature-card__text, .b2b-feature p, .news-card__text { overflow-wrap: break-word; word-break: break-word; }
+
+/* .tariff__desc: гарантия */
+.tariff__desc, .tariff__list li { overflow-wrap: break-word; word-break: break-word; }
+
+/* .contacts-info__requisites: гарантия */
+.contacts-info__requisites { overflow-wrap: break-word; word-break: break-word; }
+
+/* .form__consent span: перенос */
+.form__consent span { overflow-wrap: break-word; word-break: break-word; }
+
+/* .form__error: перенос */
+.form__error { overflow-wrap: break-word; word-break: break-word; }
+
+/* .breadcrumbs: гарантия */
+.breadcrumbs { max-width: 100%; overflow: hidden; }
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */

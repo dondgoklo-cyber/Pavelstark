@@ -1197,3 +1197,53 @@ body { max-width: 100% !important; overflow-x: clip !important; position: relati
 @media (min-width: 768px) {
   .related__grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ============================================================
+   FIX: Адаптивность заголовка и шапки (ТЗ)
+   ============================================================ */
+
+/* Мобильные устройства (≤767px): фикс обрезки заголовка */
+@media (max-width: 767px) {
+  .hero__title {
+    font-size: 22px !important;
+    line-height: 1.2;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero {
+    padding: 60px 0 80px;
+  }
+}
+
+/* Планшеты (768px–1023px): фикс шапки + заголовка */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero__title {
+    font-size: 30px !important;
+  }
+  .burger {
+    display: none !important;
+  }
+  .nav {
+    position: static;
+    flex-direction: row;
+    gap: 8px;
+    transform: none;
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+  .nav__link {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .header__phone {
+    display: inline-flex !important;
+    font-size: 14px;
+  }
+  .header__cta {
+    display: inline-flex !important;
+    font-size: 14px;
+  }
+}

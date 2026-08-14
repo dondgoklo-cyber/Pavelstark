@@ -1063,9 +1063,12 @@ body { max-width: 100% !important; overflow-x: clip !important; position: relati
 }
 @media (min-width: 1024px) {
   .container { padding: 0 32px; }
-  .burger { display: none; }
-  .nav { position: static; flex-direction: row; gap: 2px; transform: none; padding: 0; background: transparent; border: none; flex: 1; justify-content: center; min-width: 0; overflow: hidden; }
-  .nav__link { padding: 8px 10px; border: none; font-size: 14px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  /* Бургер остаётся видимым на всех экранах */
+  .burger { display: flex; }
+  /* Навигация — выпадающая панель справа (как на мобильном) */
+  .nav { position: fixed; inset: 72px 0 auto 0; flex-direction: column; gap: 4px; transform: translateY(-120%); transition: transform 0.35s var(--ease); background: var(--bg-deeper); padding: 20px 24px 32px; border-bottom: 1px solid var(--line); z-index: 90; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .nav.is-open { transform: translateY(0); }
+  .nav__link { padding: 14px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 16px; font-weight: 500; }
   .header__phone { display: inline-flex; }
   .header__cta { display: inline-flex; }
   .hero { padding: 110px 0 130px; }
@@ -1222,31 +1225,10 @@ body { max-width: 100% !important; overflow-x: clip !important; position: relati
   .hero__title {
     font-size: 30px !important;
   }
-  .burger {
-    display: none !important;
-  }
-  .nav {
-    position: static;
-    flex-direction: row;
-    gap: 8px;
-    transform: none;
-    padding: 0;
-    background: transparent;
-    border: none;
-  }
-  .nav__link {
-    padding: 6px 10px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .header__phone {
-    display: inline-flex !important;
-    font-size: 14px;
-  }
-  .header__cta {
-    display: inline-flex !important;
-    font-size: 14px;
-  }
+  /* Планшеты: бургер виден, навигация — выпадающая */
+  .burger { display: flex !important; }
+  .header__phone { display: inline-flex !important; font-size: 14px; }
+  .header__cta { display: inline-flex !important; font-size: 14px; }
 }
 
 /* ============================================================

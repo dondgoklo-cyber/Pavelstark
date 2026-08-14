@@ -184,11 +184,11 @@
       nav.classList.toggle("is-open", isOpen);
       burger.classList.toggle("is-open", isOpen);
       burger.setAttribute("aria-expanded", String(isOpen));
-      document.body.style.overflow = isOpen && window.innerWidth < 1024 ? "hidden" : "";
+      document.body.style.overflow = isOpen ? "hidden" : "";
     };
     burger.addEventListener("click", () => toggle());
     nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => toggle(false)));
-    window.addEventListener("resize", () => { if (window.innerWidth >= 1024) toggle(false); });
+    window.addEventListener("resize", () => { if (window.innerWidth >= 1024 && nav.classList.contains("is-open")) toggle(false); });
   }
 
   /* ============================================================

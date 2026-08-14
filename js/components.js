@@ -155,6 +155,44 @@ ${navLinks}
 
     // Footer — в конец body
     document.body.insertAdjacentHTML("beforeend", buildFooter());
+
+    // Оживляем бургер-меню и header-scroll сразу после вставки шапки.
+    // Флаг защищает от двойной инициализации, если main.js тоже это делает.
+    initBurgerAndHeader();
+  }
+
+  function initBurgerAndHeader() {
+    if (window.__navInitialized) return;
+    window.__navInitialized = true;
+
+    var header = document.querySelector(".header");
+    if (header) {
+      var onScroll = function () {
+        header.classList.toggle("is-scrolled", window.scrollY > 20);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+
+    var burger = document.getElementById("burger");
+    var nav = document.getElementById("nav");
+    if (burger && nav) {
+      var toggle = function (open) {
+        var isOpen = (typeof open === "boolean") ? open : !nav.classList.contains("is-open");
+        nav.classList.toggle("is-open", isOpen);
+        burger.classList.toggle("is-open", isOpen);
+        burger.setAttribute("aria-expanded", String(isOpen));
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      };
+      burger.addEventListener("click", function () { toggle(); });
+      var links = nav.querySelectorAll("a");
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener("click", function () { toggle(false); });
+      }
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 1024 && nav.classList.contains("is-open")) toggle(false);
+      });
+    }
   }
 
   // Запускаем после загрузки DOM

@@ -165,6 +165,8 @@
      5. STICKY HEADER
      ============================================================ */
   function initHeader() {
+    if (window.__headerInitialized) return;
+    window.__headerInitialized = true;
     const header = document.querySelector(".header");
     if (!header) return;
     const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 20);
@@ -176,6 +178,8 @@
      6. BURGER MENU
      ============================================================ */
   function initBurger() {
+    if (window.__navInitialized) return; // уже инициализировано в components.js
+    window.__navInitialized = true;
     const burger = document.getElementById("burger");
     const nav = document.getElementById("nav");
     if (!burger || !nav) return;

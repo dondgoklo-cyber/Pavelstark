@@ -118,7 +118,8 @@
         indexMeta = {
           categories: cats.map(function (c) { return c.name; }),
           formats: data.formats || [],
-          docTypes: data.docTypes || []
+          docTypes: data.docTypes || [],
+          maxPrice: data.maxPrice || 0
         };
         buildFilters(indexMeta);
         // Грузим ?cat= из URL если есть, иначе стартуем
@@ -246,8 +247,8 @@
       els.doc.innerHTML = '<option value="">Любой документ</option>' +
         docs.map(function (d) { return '<option value="' + esc(d) + '">' + esc(d) + '</option>'; }).join("");
     }
-    // Цена
-    var maxP = 0;
+    // Цена: maxPrice из meta (если программы ещё не загружены) или из state.all
+    var maxP = meta.maxPrice || 0;
     for (var i = 0; i < state.all.length; i++) {
       if (state.all[i].price > maxP) maxP = state.all[i].price;
     }

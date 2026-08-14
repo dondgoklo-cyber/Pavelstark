@@ -6,7 +6,7 @@
      - HTML/навигация: network-first (свежая версия, fallback в кэш)
      - data/*.json, css/js/img: cache-first (быстро, обновление при install)
    ============================================================ */
-var CACHE_VERSION = "dpo-cache-v16";
+var CACHE_VERSION = "dpo-cache-v17";
 var CORE_ASSETS = [
   "./",
   "index.html",
@@ -17,12 +17,12 @@ var CORE_ASSETS = [
   "contacts.html",
   "faq.html",
   "404.html",
-  "css/styles.min.css?v=16",
-  "js/components.min.js?v=16",
-  "js/cart.min.js?v=16",
-  "js/marketplace.min.js?v=16",
-  "js/program.min.js?v=16",
-  "js/main.min.js?v=16",
+  "css/styles.min.css?v=17",
+  "js/components.min.js?v=17",
+  "js/cart.min.js?v=17",
+  "js/marketplace.min.js?v=17",
+  "js/program.min.js?v=17",
+  "js/main.min.js?v=17",
   "data/index.json?v=1.0-790",
   "data/programs.json?v=1.0-790",
   "img/favicon.svg"

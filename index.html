@@ -18,52 +18,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-  <!-- ====== PRELOADER ====== -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__logo">A</div>
-    <div class="preloader__bar"><span></span></div>
-    <p class="preloader__text">Академия ДПО</p>
-  </div>
-
-  <!-- ====== SCROLL PROGRESS ====== -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <!-- ====== CUSTOM CURSOR (desktop) ====== -->
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-
-  <!-- ====== HEADER ====== -->
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a href="#top" class="logo" aria-label="Академия ДПО — на главную">
-        <span class="logo__mark" aria-hidden="true">A</span>
-        <span class="logo__text">
-          <span class="logo__title">Академия ДПО</span>
-          <span class="logo__tagline">Премиальное образование</span>
-        </span>
-      </a>
-      <nav class="nav" id="nav" aria-label="Основная навигация">
-        <a href="#directions" class="nav__link">Направления</a>
-        <a href="#advantages" class="nav__link">Преимущества</a>
-        <a href="#courses" class="nav__link">Курсы</a>
-        <a href="#teachers" class="nav__link">Преподаватели</a>
-        <a href="#reviews" class="nav__link">Отзывы</a>
-        <a href="#benefits" class="nav__link">Преимущества</a>
-        <a href="#news" class="nav__link">Блог</a>
-        <a href="#faq" class="nav__link">FAQ</a>
-        <a href="#contacts" class="nav__link">Контакты</a>
-      </nav>
-      <div class="header__actions">
-        <a href="tel:+78000000000" class="header__phone">8 800 000-00-00</a>
-        <a href="#enroll" class="btn btn--primary header__cta magnetic" data-magnetic>Записаться</a>
-        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main>
+    <!-- ====== HEADER (через components.js) ====== --><main>
     <!-- ====== HERO ====== -->
     <section class="hero" id="hero">
       <div class="hero__particles" id="particles-js" aria-hidden="true"></div>
@@ -80,7 +35,7 @@
             Документ государственного образца. Очно и дистанционно — по всей России.
           </p>
           <div class="hero__cta reveal" data-reveal>
-            <a href="#enroll" class="btn btn--primary magnetic" data-magnetic>Записаться на курс</a>
+            <a href="contacts.html#enroll" class="btn btn--primary magnetic" data-magnetic>Записаться на курс</a>
             <a href="#directions" class="btn btn--ghost magnetic" data-magnetic>Подобрать направление</a>
           </div>
           <ul class="hero__stats" aria-label="Статистика центра">
@@ -220,80 +175,80 @@
             <span class="course-card__tag course-card__tag--hit">Хит</span>
             <h3 class="course-card__title">Охрана труда</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>40 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">3 900 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">3 900 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-buh.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--diploma">Диплом</span>
             <h3 class="course-card__title">Профпереподготовка: Бухучёт</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>260 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">24 900 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">24 900 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-fire.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">Пожарная безопасность (ПТМ)</h3>
             <ul class="course-card__meta"><li>Очно / онлайн</li><li>16 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">2 500 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">2 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-electric.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--cert">Удостоверение</span>
             <h3 class="course-card__title">Электромонтёр 4 разряда</h3>
             <ul class="course-card__meta"><li>Очно</li><li>120 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">12 000 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">12 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-go.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">ГО и ЧС для руководителей</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>72 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">5 400 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">5 400 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-mba.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--premium">Премиум</span>
             <h3 class="course-card__title">Менеджмент (MBA-модуль)</h3>
             <ul class="course-card__meta"><li>Очно</li><li>520 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">79 000 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">79 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-ot.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--hit">Хит</span>
             <h3 class="course-card__title">Экология и ПЭК</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>72 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">6 200 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">6 200 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-buh.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--diploma">Диплом</span>
             <h3 class="course-card__title">Кадровое делопроизводство</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>256 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">22 500 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">22 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-fire.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">Энергобезопасность (V-IV гр.)</h3>
             <ul class="course-card__meta"><li>Очно / онлайн</li><li>72 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">4 800 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">4 800 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-electric.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--cert">Удостоверение</span>
             <h3 class="course-card__title">Сварщик НАКС</h3>
             <ul class="course-card__meta"><li>Очно</li><li>160 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">18 500 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">18 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-go.svg" alt="" class="course-card__img" loading="lazy" />
             <h3 class="course-card__title">Логистика и ВЭД</h3>
             <ul class="course-card__meta"><li>Дистанционно</li><li>300 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">26 800 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">26 800 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
           <article class="course-card reveal" data-reveal data-tilt>
             <img src="img/course-mba.svg" alt="" class="course-card__img" loading="lazy" />
             <span class="course-card__tag course-card__tag--premium">Премиум</span>
             <h3 class="course-card__title">IT-менеджмент (CIO)</h3>
             <ul class="course-card__meta"><li>Очно</li><li>480 ак. ч.</li></ul>
-            <div class="course-card__footer"><span class="course-card__price">69 000 ₽</span><a href="#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+            <div class="course-card__footer"><span class="course-card__price">69 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
           </article>
         </div>
       </div>
@@ -376,7 +331,7 @@
             <p class="b2b__card-label">Спецпредложение</p>
             <p class="b2b__card-title">Корпоративное обучение</p>
             <p class="b2b__card-text">Скидка до 30% при коллективной заявке от 5 сотрудников.</p>
-            <a href="#enroll" class="btn btn--primary magnetic" data-magnetic>Получить КП</a>
+            <a href="contacts.html#enroll" class="btn btn--primary magnetic" data-magnetic>Получить КП</a>
           </div>
         </div>
         <div class="b2b__content reveal" data-reveal>
@@ -423,7 +378,7 @@
             <span class="calc__result-value" id="calc-total">3 900 ₽</span>
             <span class="calc__result-discount" id="calc-discount" hidden></span>
           </div>
-          <a href="#enroll" class="btn btn--primary btn--block magnetic" data-magnetic>Записаться по этой цене</a>
+          <a href="contacts.html#enroll" class="btn btn--primary btn--block magnetic" data-magnetic>Записаться по этой цене</a>
         </div>
       </div>
     </section>
@@ -583,7 +538,7 @@
             <li><span class="cert__check">✓</span> Член НАОТ и МАПДО</li>
             <li><span class="cert__check">✓</span> Заключение СЭЗ на образовательные услуги</li>
           </ul>
-          <a href="#enroll" class="btn btn--ghost magnetic" data-magnetic>Получить консультацию</a>
+          <a href="contacts.html#enroll" class="btn btn--ghost magnetic" data-magnetic>Получить консультацию</a>
         </div>
         <div class="license__stats reveal" data-reveal>
           <div class="license__stat">
@@ -613,7 +568,7 @@
           <h2 class="cta-strip__title" id="cta-title">Готовы начать обучение?</h2>
           <p class="cta-strip__text">Оставьте заявку сегодня и получите скидку 10% на любой курс.</p>
         </div>
-        <a href="#enroll" class="btn btn--primary btn--lg magnetic" data-magnetic>Записаться со скидкой</a>
+        <a href="contacts.html#enroll" class="btn btn--primary btn--lg magnetic" data-magnetic>Записаться со скидкой</a>
       </div>
     </section>
 
@@ -688,60 +643,11 @@
       </div>
     </section>
   </main>
-
-  <!-- ====== FOOTER ====== -->
-  <footer class="footer" id="contacts">
-    <div class="container footer__inner">
-      <div class="footer__col">
-        <a href="#top" class="logo logo--light">
-          <span class="logo__mark" aria-hidden="true">A</span>
-          <span class="logo__text"><span class="logo__title">Академия ДПО</span><span class="logo__tagline">Премиальное образование</span></span>
-        </a>
-        <ul class="footer__list footer__list--contact">
-          <li><a href="tel:+78000000000">8 800 000-00-00</a></li>
-          <li><a href="mailto:info@academy-dpo.ru">info@academy-dpo.ru</a></li>
-          <li>г. Москва, ул. Образования, 1</li>
-          <li>Пн–Пт 9:00–20:00</li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Направления</h3>
-        <ul class="footer__list">
-          <li><a href="#directions">Рабочие профессии</a></li>
-          <li><a href="#directions">Повышение квалификации</a></li>
-          <li><a href="#directions">Профпереподготовка</a></li>
-          <li><a href="#b2b">Корпоративное обучение</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Документы</h3>
-        <ul class="footer__list">
-          <li>Лицензия № 0000-00</li>
-          <li>Внесение в ФИС ФРДО</li>
-          <li><a href="#">Согласие на ПДн</a></li>
-          <li><a href="#">Политика конфиденциальности</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h3 class="footer__title">Мы в соцсетях</h3>
-        <div class="footer__social">
-          <a href="#" class="footer__social-link" aria-label="Telegram">TG</a>
-          <a href="#" class="footer__social-link" aria-label="ВКонтакте">VK</a>
-          <a href="#" class="footer__social-link" aria-label="WhatsApp">WA</a>
-          <a href="#" class="footer__social-link" aria-label="YouTube">YT</a>
-        </div>
-      </div>
-    </div>
-    <div class="container footer__bottom">
-      <p>© 2024 Академия ДПО. Лицензия на образовательную деятельность № 0000-00.</p>
-      <p class="footer__legal">Все контактные данные являются демонстрационными.</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/components.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

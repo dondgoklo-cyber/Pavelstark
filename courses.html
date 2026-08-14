@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A2332" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Курсы — Академия ДПО</title>
+  <meta name="description" content="Каталог курсов ДПО: рабочие профессии, повышение квалификации, профпереподготовка. 250+ программ, документ гособразца, очно и онлайн." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main>
+    <section class="page-hero section--dark">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Курсы</span></nav>
+        <p class="section__eyebrow reveal" data-reveal>Каталог</p>
+        <h1 class="page-hero__title reveal-text" data-split>Курсы и программы</h1>
+        <p class="page-hero__lead reveal" data-reveal>Более 250 образовательных программ по трём направлениям. Выберите подходящий формат и направление.</p>
+      </div>
+    </section>
+
+    <!-- ====== ФИЛЬТРЫ ====== -->
+    <section class="section" id="catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <header class="section__head reveal" data-reveal>
+          <h2 class="section__title" id="catalog-title">Все курсы</h2>
+        </header>
+
+        <div class="filters reveal" data-reveal>
+          <button class="filter-btn is-active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="working">Рабочие профессии</button>
+          <button class="filter-btn" data-filter="qualification">Повышение квалификации</button>
+          <button class="filter-btn" data-filter="retraining">Профпереподготовка</button>
+        </div>
+
+        <div class="courses" id="courses-grid">
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="qualification">
+            <img src="img/course-ot.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--hit">Хит</span>
+            <h3 class="course-card__title">Охрана труда</h3>
+            <ul class="course-card__meta"><li>Дистанционно</li><li>40 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">3 900 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="retraining">
+            <img src="img/course-buh.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--diploma">Диплом</span>
+            <h3 class="course-card__title">Профпереподготовка: Бухучёт</h3>
+            <ul class="course-card__meta"><li>Дистанционно</li><li>260 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">24 900 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="qualification">
+            <img src="img/course-fire.svg" alt="" class="course-card__img" loading="lazy" />
+            <h3 class="course-card__title">Пожарная безопасность (ПТМ)</h3>
+            <ul class="course-card__meta"><li>Очно / онлайн</li><li>16 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">2 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="working">
+            <img src="img/course-electric.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--cert">Удостоверение</span>
+            <h3 class="course-card__title">Электромонтёр 4 разряда</h3>
+            <ul class="course-card__meta"><li>Очно</li><li>120 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">12 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="qualification">
+            <img src="img/course-go.svg" alt="" class="course-card__img" loading="lazy" />
+            <h3 class="course-card__title">ГО и ЧС для руководителей</h3>
+            <ul class="course-card__meta"><li>Дистанционно</li><li>72 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">5 400 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="retraining">
+            <img src="img/course-mba.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--premium">Премиум</span>
+            <h3 class="course-card__title">Менеджмент (MBA-модуль)</h3>
+            <ul class="course-card__meta"><li>Очно</li><li>520 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">79 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="qualification">
+            <img src="img/course-ot.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--hit">Хит</span>
+            <h3 class="course-card__title">Экология и ПЭК</h3>
+            <ul class="course-card__meta"><li>Дистанционно</li><li>72 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">6 200 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="retraining">
+            <img src="img/course-buh.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--diploma">Диплом</span>
+            <h3 class="course-card__title">Кадровое делопроизводство</h3>
+            <ul class="course-card__meta"><li>Дистанционно</li><li>256 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">22 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="qualification">
+            <img src="img/course-fire.svg" alt="" class="course-card__img" loading="lazy" />
+            <h3 class="course-card__title">Энергобезопасность (V-IV гр.)</h3>
+            <ul class="course-card__meta"><li>Очно / онлайн</li><li>72 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">4 800 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="working">
+            <img src="img/course-electric.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--cert">Удостоверение</span>
+            <h3 class="course-card__title">Сварщик НАКС</h3>
+            <ul class="course-card__meta"><li>Очно</li><li>160 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">18 500 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="retraining">
+            <img src="img/course-go.svg" alt="" class="course-card__img" loading="lazy" />
+            <h3 class="course-card__title">Логистика и ВЭД</h3>
+            <ul class="course-card__meta"><li>Дистанционно</li><li>300 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">26 800 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+          <article class="course-card reveal glass" data-reveal data-tilt data-category="retraining">
+            <img src="img/course-mba.svg" alt="" class="course-card__img" loading="lazy" />
+            <span class="course-card__tag course-card__tag--premium">Премиум</span>
+            <h3 class="course-card__title">IT-менеджмент (CIO)</h3>
+            <ul class="course-card__meta"><li>Очно</li><li>480 ак. ч.</li></ul>
+            <div class="course-card__footer"><span class="course-card__price">69 000 ₽</span><a href="contacts.html#enroll" class="btn btn--primary btn--sm magnetic" data-magnetic>Записаться</a></div>
+          </article>
+        </div>
+        <p class="no-results" id="no-results" hidden>По выбранной категории курсов не найдено.</p>
+      </div>
+    </section>
+
+    <section class="cta-strip" aria-labelledby="cta-courses">
+      <div class="container cta-strip__inner">
+        <div class="cta-strip__content reveal" data-reveal>
+          <h2 class="cta-strip__title" id="cta-courses">Не нашли нужный курс?</h2>
+          <p class="cta-strip__text">У нас 250+ программ. Оставьте заявку — подберём подходящую.</p>
+        </div>
+        <a href="contacts.html#enroll" class="btn btn--primary btn--lg magnetic" data-magnetic>Подобрать курс</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>
+    // Фильтрация курсов
+    window.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll("#courses-grid .course-card");
+      const noResults = document.getElementById("no-results");
+      // Поддержка ?cat=working в URL
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get("cat");
+      if (cat) {
+        buttons.forEach((b) => b.classList.toggle("is-active", b.dataset.filter === cat));
+      }
+      function applyFilter(filter) {
+        let visible = 0;
+        cards.forEach((card) => {
+          const show = filter === "all" || card.dataset.category === filter;
+          card.style.display = show ? "" : "none";
+          if (show) visible++;
+        });
+        if (noResults) noResults.hidden = visible > 0;
+      }
+      const active = document.querySelector(".filter-btn.is-active");
+      applyFilter(active ? active.dataset.filter : "all");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          applyFilter(btn.dataset.filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

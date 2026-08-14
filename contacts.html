@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A2332" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Контакты — Академия ДПО</title>
+  <meta name="description" content="Контакты Академии ДПО: телефон, email, адрес, реквизиты, карта. Оставьте заявку на обучение — перезвоним за 15 минут." />
+</head>
+<body>
+  <main>
+    <section class="page-hero section--dark">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Контакты</span></nav>
+        <p class="section__eyebrow reveal" data-reveal>Контакты</p>
+        <h1 class="page-hero__title reveal-text" data-split>Свяжитесь с нами</h1>
+        <p class="page-hero__lead reveal" data-reveal>Оставьте заявку — менеджер перезвонит в течение 15 минут и подберёт программу.</p>
+      </div>
+    </section>
+    <section class="section" id="enroll" aria-labelledby="contacts-title">
+      <div class="container">
+        <header class="section__head reveal" data-reveal>
+          <p class="section__eyebrow">Связь</p>
+          <h2 class="section__title" id="contacts-title">Контакты</h2>
+        </header>
+        <div class="contacts-grid">
+          <div class="contacts-info reveal" data-reveal>
+            <h3 class="contacts-info__title">Свяжитесь с нами</h3>
+            <ul class="contacts-info__list">
+              <li><span class="contacts-info__icon">📞</span><div><strong>Телефон:</strong><br><a href="tel:+78000000000">8 800 000-00-00</a><br><small>Бесплатно по России</small></div></li>
+              <li><span class="contacts-info__icon">✉️</span><div><strong>Email:</strong><br><a href="mailto:info@academy-dpo.ru">info@academy-dpo.ru</a></div></li>
+              <li><span class="contacts-info__icon">📍</span><div><strong>Адрес:</strong><br>г. Москва, ул. Образования, 1</div></li>
+              <li><span class="contacts-info__icon">🕒</span><div><strong>Режим работы:</strong><br>Пн–Пт 9:00–20:00<br>Сб 10:00–16:00</div></li>
+            </ul>
+            <h3 class="contacts-info__title">Реквизиты</h3>
+            <p class="contacts-info__requisites">ООО «Академия ДПО»<br>ИНН: 0000000000<br>ОГРН: 0000000000000<br>Лицензия № 0000-00 (бессрочная)</p>
+          </div>
+          <form class="form reveal glass" data-reveal id="enroll-form" novalidate>
+            <h3 class="form__title">Записаться на обучение</h3>
+            <div class="form__field"><label for="name" class="form__label">Ваше имя</label><input type="text" id="name" name="name" class="form__input" placeholder="Иван" required minlength="2" autocomplete="name" /><span class="form__error" data-error-for="name"></span></div>
+            <div class="form__field"><label for="phone" class="form__label">Телефон</label><input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__" required autocomplete="tel" /><span class="form__error" data-error-for="phone"></span></div>
+            <div class="form__field"><label for="course" class="form__label">Курс</label><select id="course" name="course" class="form__input form__select" required><option value="" disabled selected>Выберите курс</option><option>Охрана труда</option><option>Профпереподготовка: Бухучёт</option><option>Пожарная безопасность (ПТМ)</option><option>Электромонтёр</option><option>ГО и ЧС</option><option>Менеджмент (MBA-модуль)</option><option>Другое</option></select><span class="form__error" data-error-for="course"></span></div>
+            <div class="form__field"><label for="message" class="form__label">Комментарий (необязательно)</label><textarea id="message" name="message" class="form__input" rows="3" placeholder="Ваш вопрос..."></textarea></div>
+            <label class="form__consent"><input type="checkbox" id="consent" name="consent" required /><span>Я согласен на обработку персональных данных в соответствии с <a href="policy.html" class="form__link">политикой конфиденциальности</a> (152-ФЗ).</span></label>
+            <button type="submit" class="btn btn--primary btn--block magnetic" data-magnetic>Отправить заявку</button>
+            <p class="form__success" id="form-success" role="status" hidden>✓ Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.</p>
+          </form>
+        </div>
+        <div class="map reveal" data-reveal>
+          <iframe src="https://yandex.ru/map-widget/v1/?ll=37.617635%2C55.755814&z=14" width="100%" height="400" frameborder="0" title="Карта расположения Академии ДПО" loading="lazy" style="border:0; border-radius:16px;"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

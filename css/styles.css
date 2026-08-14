@@ -1301,9 +1301,9 @@ body.is-locked { overflow: hidden; }
 
 /* ===== Плавающая кнопка корзины (FAB) — мобильные ===== */
 .cart-fab {
-  position: fixed; bottom: 20px; right: 20px; z-index: 800;
-  width: 60px; height: 60px; border-radius: 50%;
-  display: none; align-items: center; justify-content: center;
+  position: fixed; bottom: 24px; right: 24px; z-index: 800;
+  width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
   background: var(--gold); color: var(--bg-deep);
   box-shadow: 0 8px 28px rgba(255,215,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
   cursor: pointer; border: none;
@@ -1329,17 +1329,12 @@ body.is-locked { overflow: hidden; }
   50% { box-shadow: 0 8px 28px rgba(255,215,0,0.5), 0 2px 8px rgba(0,0,0,0.3), 0 0 0 8px rgba(255,215,0,0.15); }
 }
 
-/* FAB видим только на мобильных и планшетах (до 1024px) */
-@media (max-width: 1023px) {
-  .cart-fab { display: flex; }
-  .cart-fab[hidden] { display: none !important; }
-}
+/* FAB видим на всех экранах */
+.cart-fab[hidden] { display: none !important; }
 
 /* На очень маленьких экранах скрываем текст "Корзина" в шапке, оставляем иконку+бейдж */
 @media (max-width: 480px) {
-  .cart-btn__label { display: none; }
-  .cart-btn { padding: 10px 12px; }
-  .cart-fab { width: 54px; height: 54px; bottom: 16px; right: 16px; }
+  .cart-fab { width: 56px; height: 56px; bottom: 16px; right: 16px; }
 }
 
 /* Акцентная ссылка в навигации (Каталог программ) */

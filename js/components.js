@@ -51,15 +51,7 @@ ${navLinks}
           </button>
           <a href="tel:+78000000000" class="header__phone">8 800 000-00-00</a>
           <a href="marketplace.html" class="btn btn--primary header__cta magnetic" data-magnetic>Каталог программ</a>
-          <button type="button" class="cart-btn" data-cart-open aria-label="Открыть корзину">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L22 8H6" />
-              <circle cx="9" cy="21" r="1.6" />
-              <circle cx="18" cy="21" r="1.6" />
-            </svg>
-            <span class="cart-btn__label">Корзина</span>
-            <span class="cart-btn__badge" data-cart-count hidden>0</span>
-          </button>
+
         </div>
       </div>
     </header>`;

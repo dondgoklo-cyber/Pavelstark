@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A2332" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Программа — Академия ДПО · Маркетплейс образования</title>
+  <meta name="description" content="Детальная страница программы дополнительного профессионального образования: формат обучения, длительность, документ, цена, рейтинг. Добавьте в корзину или оформите заказ." />
+  <link rel="canonical" href="https://dondgoklo-cyber.github.io/Pavelstark/program.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dondgoklo-cyber.github.io/Pavelstark/program.html" />
+  <meta property="og:image" content="https://dondgoklo-cyber.github.io/Pavelstark/img/favicon.svg" />
+  <meta property="og:site_name" content="Академия ДПО" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.min.css?v=15" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="apple-touch-icon" href="img/favicon.svg" />
+</head>
+<body>
+  <!-- ====== HEADER (через components.js) ====== -->
+
+  <main>
+    <!-- ============ ХЛЕБНЫЕ КРОШКИ ============ -->
+    <section class="page-hero section--dark">
+      <div class="container">
+        <nav class="breadcrumbs" id="pg-breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a>
+          <span aria-hidden="true">/</span>
+          <a href="marketplace.html">Каталог программ</a>
+          <span aria-hidden="true">/</span>
+          <span id="pg-crumb-current" aria-current="page">Программа</span>
+        </nav>
+        <p class="section__eyebrow" id="pg-eyebrow">Программа ДПО</p>
+        <h1 class="page-hero__title" id="pg-title">Загрузка программы…</h1>
+      </div>
+    </section>
+
+    <!-- ============ КАРТОЧКА ПРОГРАММЫ ============ -->
+    <section class="section">
+      <div class="container">
+        <!-- Сюда program.js рендерит основное содержимое -->
+        <div id="pg-content" class="pg-content" aria-live="polite">
+          <div class="pg-loader" role="status">
+            <span class="mp-loader__spinner"></span>
+            <span class="mp-loader__text">Загрузка программы…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ПОХОЖИЕ ПРОГРАММЫ ============ -->
+    <section class="section section--dark" id="pg-related-section" hidden>
+      <div class="container">
+        <p class="section__eyebrow">Похожие программы</p>
+        <h2 class="section__title">Смотрите также из этого направления</h2>
+        <div class="mp-grid" id="pg-related" style="margin-top:24px"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/components.min.js?v=15" defer></script>
+  <script src="js/cart.min.js?v=15" defer></script>
+  <script src="js/program.min.js?v=15" defer></script>
+</body>
+</html>

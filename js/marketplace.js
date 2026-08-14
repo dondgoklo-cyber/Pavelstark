@@ -56,6 +56,14 @@
     cacheEls();
     if (!els.grid) return;
 
+    // Читаем ?q= из URL — подставляем в поле поиска и применяем фильтр
+    var params = new URLSearchParams(window.location.search);
+    var q = (params.get("q") || "").trim();
+    if (q) {
+      state.search = q.toLowerCase();
+      if (els.search) els.search.value = q;
+    }
+
     bindEvents();
     load();
   }
@@ -257,6 +265,7 @@
 
     return (
       '<article class="mp-card" data-id="' + esc(p.id) + '">' +
+      '  <a class="mp-card__link" href="program.html?id=' + encodeURIComponent(p.id) + '" aria-label="' + esc(p.title) + '"></a>' +
       '  <div class="mp-card__top">' + tag +
       '    <span class="mp-card__rating" title="Рейтинг">★ ' + (p.rating || "—") + '</span>' +
       '  </div>' +

@@ -235,6 +235,7 @@
         '</article>';
     }
     body.innerHTML = html;
+    renderRelated(items);
 
     if (foot) {
       foot.hidden = false;
@@ -322,6 +323,71 @@
         '</div>';
       if (foot) foot.hidden = true;
       document.getElementById("ck-done").addEventListener("click", function () { clear(); close(); });
+    });
+  }
+
+  /* ---------- Похожие программы в корзине ---------- */
+  var programsCache = null;
+  var programsLoading = false;
+
+  function loadPrograms(cb) {
+    if (programsCache) { cb(programsCache); return; }
+    if (programsLoading) { return; }
+    programsLoading = true;
+    fetch("data/programs.json?v=1.0-790", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (data) {
+        programsCache = (data && data.programs) ? data.programs : [];
+        programsLoading = false;
+        cb(programsCache);
+      })
+      .catch(function () { programsLoading = false; });
+  }
+
+  function renderRelated(items) {
+    var body = document.getElementById("cart-body");
+    if (!body || items.length === 0) return;
+    // Берём категорию последнего добавленного товара
+    var cat = items[items.length - 1].category;
+    var inCart = {};
+    for (var i = 0; i < items.length; i++) inCart[items[i].id] = true;
+    loadPrograms(function (all) {
+      if (!all || !all.length) return;
+      var same = [];
+      for (var j = 0; j < all.length && same.length < 4; j++) {
+        if (all[j].category === cat && !inCart[all[j].id]) same.push(all[j]);
+      }
+      // добираем из других категорий, если мало
+      if (same.length < 4) {
+        for (var k = 0; k < all.length && same.length < 4; k++) {
+          if (all[k].category !== cat && !inCart[all[k].id]) same.push(all[k]);
+        }
+      }
+      if (same.length === 0) return;
+      var html = '<div class="cart-related">' +
+        '  <p class="cart-related__title">С этим покупают</p>' +
+        '  <div class="cart-related__list">';
+      for (var m = 0; m < same.length; m++) {
+        var rp = same[m];
+        var pData = encodeURIComponent(JSON.stringify({
+          id: rp.id, title: rp.title, price: rp.price, category: rp.category, format: rp.format
+        }));
+        var inCartCls = window.DpoCart && window.DpoCart.has(rp.id) ? " is-in-cart" : "";
+        var label = inCartCls ? "В корзине ✓" : "В корзину";
+        html +=
+          '<div class="cart-related__item">' +
+          '  <a class="cart-related__item-main" href="program.html?id=' + encodeURIComponent(rp.id) + '">' +
+          '    <p class="cart-related__item-title">' + esc(rp.title) + '</p>' +
+          '    <span class="cart-related__item-price">' + fmtPrice(rp.price) + '</span>' +
+          '  </a>' +
+          '  <button type="button" class="cart-related__item-add' + inCartCls + '" data-add-cart data-program="' + pData + '">' + label + '</button>' +
+          '</div>';
+      }
+      html += '  </div></div>';
+      // вставляем после списка товаров
+      var existing = body.querySelector(".cart-related");
+      if (existing) existing.parentNode.removeChild(existing);
+      body.insertAdjacentHTML("beforeend", html);
     });
   }
 

@@ -46,6 +46,18 @@
 ${navLinks}
         </nav>
         <div class="header__actions">
+          <div class="header__search">
+            <button type="button" class="header__search-btn" id="header-search-btn" aria-label="Поиск программ" aria-expanded="false" aria-controls="header-search-form">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
+              </svg>
+            </button>
+            <form class="header__search-form" id="header-search-form" role="search" aria-label="Поиск по программам">
+              <label for="header-search-input" class="visually-hidden">Поиск программ</label>
+              <input type="search" id="header-search-input" class="header__search-input" name="q" placeholder="Поиск: охрана труда, Python…" autocomplete="off" />
+              <button type="submit" class="header__search-submit">Найти</button>
+            </form>
+          </div>
           <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
             <span></span><span></span><span></span>
           </button>
@@ -197,6 +209,34 @@ ${navLinks}
       }
       window.addEventListener("resize", function () {
         if (window.innerWidth >= 1024 && nav.classList.contains("is-open")) toggle(false);
+      });
+    }
+
+    // Поиск в шапке: раскрытие формы и отправка на marketplace.html?q=
+    var searchBtn = document.getElementById("header-search-btn");
+    var searchForm = document.getElementById("header-search-form");
+    var searchInput = document.getElementById("header-search-input");
+    if (searchBtn && searchForm) {
+      var toggleSearch = function (open) {
+        var isOpen = (typeof open === "boolean") ? open : !searchForm.classList.contains("is-open");
+        searchForm.classList.toggle("is-open", isOpen);
+        searchBtn.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen && searchInput) { setTimeout(function () { searchInput.focus(); }, 50); }
+      };
+      searchBtn.addEventListener("click", function (e) { e.stopPropagation(); toggleSearch(); });
+      document.addEventListener("click", function (e) {
+        if (!searchForm.classList.contains("is-open")) return;
+        if (!e.target.closest(".header__search")) toggleSearch(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && searchForm.classList.contains("is-open")) toggleSearch(false);
+      });
+      searchForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var q = (searchInput ? searchInput.value : "").trim();
+        if (q) {
+          window.location.href = "marketplace.html?q=" + encodeURIComponent(q);
+        }
       });
     }
   }

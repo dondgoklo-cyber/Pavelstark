@@ -9,7 +9,7 @@
   const NAV_ITEMS = [
     { label: "Главная", href: "index.html" },
     { label: "О нас", href: "about.html" },
-    { label: "Курсы", href: "courses.html" },
+    { label: "Каталог программ", href: "marketplace.html", accent: true },
     { label: "Преподаватели", href: "teachers.html" },
     { label: "Отзывы", href: "reviews.html" },
     { label: "Корпоративам", href: "b2b.html" },
@@ -27,8 +27,9 @@
     const current = getCurrentPage();
     const navLinks = NAV_ITEMS.map((item) => {
       const active = item.href === current ? ' aria-current="page"' : "";
-      const cls = item.href === current ? ' class="nav__link is-active"' : ' class="nav__link"';
-      return `        <a href="${item.href}"${cls}${active}>${item.label}</a>`;
+      let cls = item.href === current ? "nav__link is-active" : "nav__link";
+      if (item.accent) cls += " nav__link--accent";
+      return `        <a href="${item.href}" class="${cls}"${active}>${item.label}</a>`;
     }).join("\n");
 
     return `
@@ -46,7 +47,15 @@ ${navLinks}
         </nav>
         <div class="header__actions">
           <a href="tel:+78000000000" class="header__phone">8 800 000-00-00</a>
-          <a href="contacts.html#enroll" class="btn btn--primary header__cta magnetic" data-magnetic>Записаться</a>
+          <button type="button" class="cart-trigger" data-cart-open aria-label="Открыть корзину">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L22 8H6" />
+              <circle cx="9" cy="21" r="1.6" />
+              <circle cx="18" cy="21" r="1.6" />
+            </svg>
+            <span class="cart-trigger__badge" data-cart-count hidden>0</span>
+          </button>
+          <a href="marketplace.html" class="btn btn--primary header__cta magnetic" data-magnetic>Каталог программ</a>
           <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
             <span></span><span></span><span></span>
           </button>

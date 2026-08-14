@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A2332" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Каталог программ — Академия ДПО · Маркетплейс образования</title>
+  <meta name="description" content="Маркетплейс образовательных программ ДПО: более 500 программ повышения квалификации и профпереподготовки. Охрана труда, пожарная безопасность, IT, бухгалтерия, менеджмент. Добавляйте в корзину и оформляйте заказ." />
+  <link rel="canonical" href="https://dondgoklo-cyber.github.io/Pavelstark/marketplace.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dondgoklo-cyber.github.io/Pavelstark/marketplace.html" />
+  <meta property="og:image" content="https://dondgoklo-cyber.github.io/Pavelstark/img/favicon.svg" />
+  <meta property="og:site_name" content="Академия ДПО" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="apple-touch-icon" href="img/favicon.svg" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <!-- ====== HEADER (через components.js) ====== -->
+
+  <main>
+    <!-- ============ PAGE HEAD ============ -->
+    <section class="mp-hero">
+      <div class="container">
+        <p class="section__eyebrow">Маркетплейс программ</p>
+        <h1 class="mp-hero__title">Каталог образовательных программ</h1>
+        <p class="mp-hero__lead">
+          Более 500 программ повышения квалификации и профессиональной
+          переподготовки. Выберите направление, добавьте в корзину и
+          оформите заказ — обучение по договору, документ установленного образца.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FILTERS + GRID ============ -->
+    <section class="section" id="catalog">
+      <div class="container">
+        <!-- Фильтры -->
+        <div class="mp-filters" id="mp-filters">
+          <div class="mp-filters__search">
+            <label for="mp-search" class="visually-hidden">Поиск по программам</label>
+            <input type="search" id="mp-search" class="form__input" placeholder="🔍 Поиск: охрана труда, Python, 1С…" autocomplete="off" />
+          </div>
+
+          <div class="mp-filters__row">
+            <div class="mp-field">
+              <label for="mp-category" class="mp-field__label">Категория</label>
+              <select id="mp-category" class="form__input form__select"><option value="">Все категории</option></select>
+            </div>
+            <div class="mp-field">
+              <label for="mp-format" class="mp-field__label">Формат</label>
+              <select id="mp-format" class="form__input form__select"><option value="">Любой формат</option></select>
+            </div>
+            <div class="mp-field">
+              <label for="mp-doc" class="mp-field__label">Документ</label>
+              <select id="mp-doc" class="form__input form__select"><option value="">Любой документ</option></select>
+            </div>
+            <div class="mp-field">
+              <label for="mp-price-max" class="mp-field__label">Цена до: <span id="mp-price-val" class="mp-field__val">—</span></label>
+              <input type="range" id="mp-price-max" class="mp-range" min="0" max="100000" step="500" value="100000" />
+            </div>
+            <div class="mp-field">
+              <label for="mp-sort" class="mp-field__label">Сортировка</label>
+              <select id="mp-sort" class="form__input form__select">
+                <option value="default">По умолчанию</option>
+                <option value="price-asc">Сначала дешевле</option>
+                <option value="price-desc">Сначала дороже</option>
+                <option value="rating">По рейтингу</option>
+                <option value="duration-asc">Короче по длительности</option>
+                <option value="duration-desc">Длиннее по длительности</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn--ghost btn--sm mp-filters__reset" id="mp-reset">Сбросить</button>
+          </div>
+        </div>
+
+        <!-- Счётчик -->
+        <div class="mp-toolbar">
+          <span class="mp-toolbar__count" id="mp-count">— программ</span>
+          <button type="button" class="btn btn--ghost btn--sm mp-toolbar__cart" data-cart-open>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="9" cy="21" r="1.6"/><circle cx="18" cy="21" r="1.6"/></svg>
+            Корзина <span class="cart-trigger__badge is-inline" data-cart-count hidden>0</span>
+          </button>
+        </div>
+
+        <!-- Сетка карточек -->
+        <div class="mp-grid" id="mp-grid"></div>
+
+        <!-- Пусто -->
+        <div class="mp-empty" id="mp-empty" hidden>
+          <p class="mp-empty__text" id="mp-empty-text">По заданным фильтрам ничего не найдено.</p>
+          <button type="button" class="btn btn--primary btn--sm" id="mp-empty-reset">Сбросить фильтры</button>
+        </div>
+
+        <!-- Ленивая подгрузка -->
+        <div class="mp-loader" id="mp-loader" aria-hidden="true">
+          <span class="mp-loader__spinner"></span>
+          <span class="mp-loader__text">Загрузка программ…</span>
+        </div>
+        <div id="mp-sentinel" aria-hidden="true" style="height:1px"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/marketplace.js" defer></script>
+</body>
+</html>

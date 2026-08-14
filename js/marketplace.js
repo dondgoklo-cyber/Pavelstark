@@ -1,0 +1,345 @@
+/* ============================================================
+   Каталог marketplace — ДПО
+   Загрузка data/programs.json, рендер карточек, фильтры
+   (категория / формат / документ / цена), поиск, сортировка,
+   пагинация порциями (по 24) с ленивой подгрузкой через
+   IntersectionObserver. Кнопки «В корзину» / «Купить»
+   делегируются в js/cart.js.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var PER_PAGE = 24;
+  var state = {
+    all: [],
+    filtered: [],
+    page: 0,
+    search: "",
+    category: "",
+    format: "",
+    docType: "",
+    sort: "default",
+    maxPrice: 0
+  };
+
+  var els = {};
+
+  function $(sel) { return document.querySelector(sel); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function fmtPrice(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
+  }
+
+  function cacheEls() {
+    els.grid = $("#mp-grid");
+    els.count = $("#mp-count");
+    els.empty = $("#mp-empty");
+    els.search = $("#mp-search");
+    els.cat = $("#mp-category");
+    els.fmt = $("#mp-format");
+    els.doc = $("#mp-doc");
+    els.priceMax = $("#mp-price-max");
+    els.priceVal = $("#mp-price-val");
+    els.sort = $("#mp-sort");
+    els.reset = $("#mp-reset");
+    els.sentinel = $("#mp-sentinel");
+    els.loader = $("#mp-loader");
+  }
+
+  function init() {
+    cacheEls();
+    if (!els.grid) return;
+
+    bindEvents();
+    load();
+  }
+
+  function bindEvents() {
+    if (els.search) {
+      var t;
+      els.search.addEventListener("input", function () {
+        clearTimeout(t);
+        t = setTimeout(function () {
+          state.search = els.search.value.trim().toLowerCase();
+          apply();
+        }, 250);
+      });
+    }
+    if (els.cat) els.cat.addEventListener("change", function () { state.category = els.cat.value; apply(); });
+    if (els.fmt) els.fmt.addEventListener("change", function () { state.format = els.fmt.value; apply(); });
+    if (els.doc) els.doc.addEventListener("change", function () { state.docType = els.doc.value; apply(); });
+    if (els.sort) els.sort.addEventListener("change", function () { state.sort = els.sort.value; apply(); });
+    if (els.reset) els.reset.addEventListener("click", resetFilters);
+    var emptyReset = document.getElementById("mp-empty-reset");
+    if (emptyReset) emptyReset.addEventListener("click", resetFilters);
+    if (els.priceMax) {
+      els.priceMax.addEventListener("input", function () {
+        if (els.priceVal) els.priceVal.textContent = fmtPrice(parseInt(els.priceMax.value, 10) || 0);
+      });
+      els.priceMax.addEventListener("change", function () { apply(); });
+    }
+  }
+
+  function load() {
+    var url = "data/programs.json?v=1.0-790";
+    fetch(url, { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        state.all = (data && data.programs) ? data.programs : [];
+        buildFilters(data && data.meta ? data.meta : {});
+        apply();
+      })
+      .catch(function (err) {
+        console.error("marketplace: загрузка программ не удалась", err);
+        if (els.grid) {
+          els.grid.innerHTML = "";
+        }
+        if (els.empty) {
+          els.empty.hidden = false;
+          els.empty.querySelector("#mp-empty-text").textContent =
+            "Не удалось загрузить каталог. Попробуйте обновить страницу.";
+        }
+        if (els.loader) els.loader.hidden = true;
+      });
+  }
+
+  function buildFilters(meta) {
+    // Категории
+    var cats = meta.categories || unique(state.all.map(function (p) { return p.category; }));
+    if (els.cat) {
+      els.cat.innerHTML = '<option value="">Все категории</option>' +
+        cats.map(function (c) { return '<option value="' + esc(c) + '">' + esc(c) + '</option>'; }).join("");
+    }
+    // Форматы
+    var fmts = meta.formats || unique(state.all.map(function (p) { return p.format; }));
+    if (els.fmt) {
+      els.fmt.innerHTML = '<option value="">Любой формат</option>' +
+        fmts.map(function (f) { return '<option value="' + esc(f) + '">' + esc(f) + '</option>'; }).join("");
+    }
+    // Тип документа
+    var docs = meta.docTypes || unique(state.all.map(function (p) { return p.docType; }));
+    if (els.doc) {
+      els.doc.innerHTML = '<option value="">Любой документ</option>' +
+        docs.map(function (d) { return '<option value="' + esc(d) + '">' + esc(d) + '</option>'; }).join("");
+    }
+    // Цена
+    var maxP = 0;
+    for (var i = 0; i < state.all.length; i++) {
+      if (state.all[i].price > maxP) maxP = state.all[i].price;
+    }
+    state.maxPrice = maxP;
+    if (els.priceMax) {
+      els.priceMax.min = 0;
+      els.priceMax.max = maxP;
+      els.priceMax.value = maxP;
+      els.priceMax.step = 500;
+      if (els.priceVal) els.priceVal.textContent = fmtPrice(maxP);
+    }
+  }
+
+  function unique(arr) {
+    var seen = {}, out = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] && !seen[arr[i]]) { seen[arr[i]] = true; out.push(arr[i]); }
+    }
+    return out.sort();
+  }
+
+  function apply() {
+    var list = state.all.slice();
+
+    if (state.search) {
+      list = list.filter(function (p) {
+        return (p.title && p.title.toLowerCase().indexOf(state.search) !== -1) ||
+               (p.category && p.category.toLowerCase().indexOf(state.search) !== -1) ||
+               (p.description && p.description.toLowerCase().indexOf(state.search) !== -1);
+      });
+    }
+    if (state.category) list = list.filter(function (p) { return p.category === state.category; });
+    if (state.format) list = list.filter(function (p) { return p.format === state.format; });
+    if (state.docType) list = list.filter(function (p) { return p.docType === state.docType; });
+    if (els.priceMax) {
+      var maxPrice = parseInt(els.priceMax.value, 10) || 0;
+      list = list.filter(function (p) { return p.price <= maxPrice; });
+    }
+
+    list = sortList(list);
+
+    state.filtered = list;
+    state.page = 0;
+    els.grid.innerHTML = "";
+    if (els.empty) els.empty.hidden = true;
+    renderPage();
+    updateCount();
+    setupObserver();
+  }
+
+  function sortList(list) {
+    var s = state.sort;
+    var arr = list.slice();
+    if (s === "price-asc") arr.sort(function (a, b) { return a.price - b.price; });
+    else if (s === "price-desc") arr.sort(function (a, b) { return b.price - a.price; });
+    else if (s === "rating") arr.sort(function (a, b) { return (b.rating || 0) - (a.rating || 0); });
+    else if (s === "duration-asc") arr.sort(function (a, b) { return a.duration - b.duration; });
+    else if (s === "duration-desc") arr.sort(function (a, b) { return b.duration - a.duration; });
+    return arr;
+  }
+
+  function updateCount() {
+    if (!els.count) return;
+    var n = state.filtered.length;
+    els.count.textContent = n + " " + plural(n, "программа", "программы", "программ");
+  }
+
+  function plural(n, one, few, many) {
+    var n10 = n % 10, n100 = n % 100;
+    if (n10 === 1 && n100 !== 11) return one;
+    if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return few;
+    return many;
+  }
+
+  function renderPage() {
+    var start = state.page * PER_PAGE;
+    var end = start + PER_PAGE;
+    var slice = state.filtered.slice(start, end);
+    if (slice.length === 0 && state.page === 0) {
+      if (els.empty) els.empty.hidden = false;
+      if (els.loader) els.loader.hidden = true;
+      return;
+    }
+
+    var html = "";
+    for (var i = 0; i < slice.length; i++) {
+      html += cardHtml(slice[i]);
+    }
+    els.grid.insertAdjacentHTML("beforeend", html);
+    syncCardButtons();
+
+    if (end >= state.filtered.length) {
+      if (els.loader) els.loader.hidden = true;
+    }
+    state.page++;
+  }
+
+  function cardHtml(p) {
+    var tag = "";
+    if (p.tag) {
+      var tagClass = "mp-card__tag";
+      if (p.tag === "Хит") tagClass += " mp-card__tag--hit";
+      else if (p.tag === "Скидка") tagClass += " mp-card__tag--sale";
+      else if (p.tag === "Новинка") tagClass += " mp-card__tag--new";
+      else if (p.tag === "Премиум") tagClass += " mp-card__tag--premium";
+      tag = '<span class="' + tagClass + '">' + esc(p.tag) + '</span>';
+    }
+    var priceHtml = "";
+    if (p.oldPrice) {
+      priceHtml = '<span class="mp-card__old">' + fmtPrice(p.oldPrice) + '</span>';
+    }
+    var pData = encodeURIComponent(JSON.stringify({
+      id: p.id, title: p.title, price: p.price, category: p.category, format: p.format
+    }));
+
+    return (
+      '<article class="mp-card" data-id="' + esc(p.id) + '">' +
+      '  <div class="mp-card__top">' + tag +
+      '    <span class="mp-card__rating" title="Рейтинг">★ ' + (p.rating || "—") + '</span>' +
+      '  </div>' +
+      '  <h3 class="mp-card__title">' + esc(p.title) + '</h3>' +
+      '  <p class="mp-card__category">' + esc(p.category) + '</p>' +
+      '  <ul class="mp-card__meta">' +
+      '    <li>' + esc(p.format) + '</li>' +
+      '    <li>' + p.duration + ' ак. ч.</li>' +
+      '    <li>' + esc(p.docType) + '</li>' +
+      '  </ul>' +
+      '  <div class="mp-card__foot">' +
+      '    <div class="mp-card__prices">' +
+      '      <span class="mp-card__price">' + fmtPrice(p.price) + '</span>' +
+      '      ' + priceHtml +
+      '    </div>' +
+      '    <div class="mp-card__actions">' +
+      '      <button type="button" class="btn btn--ghost btn--sm mp-card__cart" data-add-cart data-program="' + pData + '">В корзину</button>' +
+      '      <button type="button" class="btn btn--primary btn--sm mp-card__buy" data-buy-now data-program="' + pData + '">Купить</button>' +
+      '    </div>' +
+      '  </div>' +
+      '</article>'
+    );
+  }
+
+  /* Подсветка кнопки «В корзину», если товар уже в корзине */
+  function syncCardButtons() {
+    if (!window.DpoCart) return;
+    var cards = els.grid.querySelectorAll(".mp-card");
+    for (var i = 0; i < cards.length; i++) {
+      var id = cards[i].getAttribute("data-id");
+      var cartBtn = cards[i].querySelector("[data-add-cart]");
+      if (cartBtn && window.DpoCart.has(id)) {
+        cartBtn.classList.add("is-in-cart");
+        cartBtn.textContent = "В корзине ✓";
+      }
+    }
+  }
+
+  /* Ленивая подгрузка следующих порций при прокрутке к сантинелу */
+  var observer = null;
+  function setupObserver() {
+    if (observer) observer.disconnect();
+    if (!els.sentinel) return;
+    if (!("IntersectionObserver" in window)) {
+      // Фолбэк: подгрузить всё сразу
+      while (state.page * PER_PAGE < state.filtered.length) renderPage();
+      return;
+    }
+    observer = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          var start = state.page * PER_PAGE;
+          if (start < state.filtered.length) {
+            renderPage();
+          } else {
+            observer.disconnect();
+          }
+        }
+      }
+    }, { rootMargin: "400px" });
+    observer.observe(els.sentinel);
+  }
+
+  function resetFilters() {
+    state.search = "";
+    state.category = "";
+    state.format = "";
+    state.docType = "";
+    state.sort = "default";
+    if (els.search) els.search.value = "";
+    if (els.cat) els.cat.value = "";
+    if (els.fmt) els.fmt.value = "";
+    if (els.doc) els.doc.value = "";
+    if (els.sort) els.sort.value = "default";
+    if (els.priceMax) {
+      els.priceMax.value = state.maxPrice;
+      if (els.priceVal) els.priceVal.textContent = fmtPrice(state.maxPrice);
+    }
+    apply();
+  }
+
+  // Слушаем изменения корзины, чтобы обновлять подписи кнопок
+  window.addEventListener("storage", function (e) {
+    if (e.key === "dpo_cart_v1" && window.DpoCart) {
+      window.DpoCart.items = window.DpoCart.items || [];
+      syncCardButtons();
+    }
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

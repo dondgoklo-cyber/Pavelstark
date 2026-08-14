@@ -251,6 +251,21 @@ ${navLinks}
   // Экспортируем для использования в main.js (инициализация бургера, header scroll и т.д.)
   window.__componentsReady = true;
 
+  // Регистрация Service Worker для оффлайн-доступа к каталогу.
+  // Только на https/localhost, без блокировки основного потока.
+  if ("serviceWorker" in navigator) {
+    var registerSW = function () {
+      navigator.serviceWorker.register("sw.js").catch(function (err) {
+        console.warn("sw: регистрация не удалась", err);
+      });
+    };
+    if (document.readyState === "complete") {
+      registerSW();
+    } else {
+      window.addEventListener("load", registerSW);
+    }
+  }
+
   // Автоскрытие прелоадера: если main.js не подключён (например, на marketplace.html),
   // прелоадер может зависнуть навсегда. Скрываем его через 2.5с автоматически,
   // чтобы пользователь всегда видел контент. main.js при наличии скроет быстрее.

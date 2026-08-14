@@ -1,0 +1,102 @@
+{
+  "total": 790,
+  "version": "1.0",
+  "generated": "2024-08-14",
+  "formats": [
+    "Дистанционно",
+    "Очно",
+    "Очно / онлайн"
+  ],
+  "docTypes": [
+    "Диплом о профпереподготовке",
+    "Корочка",
+    "Сертификат",
+    "Удостоверение"
+  ],
+  "categories": [
+    {
+      "name": "Охрана труда",
+      "slug": "ohrana-truda",
+      "file": "data/cat-ohrana-truda.json",
+      "count": 65
+    },
+    {
+      "name": "Пожарная безопасность",
+      "slug": "pozharnaya-bezopasnost",
+      "file": "data/cat-pozharnaya-bezopasnost.json",
+      "count": 54
+    },
+    {
+      "name": "Электробезопасность",
+      "slug": "elektrobezopasnost",
+      "file": "data/cat-elektrobezopasnost.json",
+      "count": 38
+    },
+    {
+      "name": "Промышленная безопасность",
+      "slug": "promyshlennaya-bezopasnost",
+      "file": "data/cat-promyshlennaya-bezopasnost.json",
+      "count": 54
+    },
+    {
+      "name": "Бухгалтерия и финансы",
+      "slug": "buhgalteriya-i-finansy",
+      "file": "data/cat-buhgalteriya-i-finansy.json",
+      "count": 66
+    },
+    {
+      "name": "Менеджмент и управление",
+      "slug": "menedzhment-i-upravlenie",
+      "file": "data/cat-menedzhment-i-upravlenie.json",
+      "count": 71
+    },
+    {
+      "name": "IT и цифровизация",
+      "slug": "it-i-tsifrovizatsiya",
+      "file": "data/cat-it-i-tsifrovizatsiya.json",
+      "count": 96
+    },
+    {
+      "name": "Маркетинг и продажи",
+      "slug": "marketing-i-prodazhi",
+      "file": "data/cat-marketing-i-prodazhi.json",
+      "count": 69
+    },
+    {
+      "name": "Педагогика и образование",
+      "slug": "pedagogika-i-obrazovanie",
+      "file": "data/cat-pedagogika-i-obrazovanie.json",
+      "count": 60
+    },
+    {
+      "name": "Медицина и здоровье",
+      "slug": "meditsina-i-zdorove",
+      "file": "data/cat-meditsina-i-zdorove.json",
+      "count": 35
+    },
+    {
+      "name": "Дизайн и творчество",
+      "slug": "dizain-i-tvorchestvo",
+      "file": "data/cat-dizain-i-tvorchestvo.json",
+      "count": 50
+    },
+    {
+      "name": "Логистика и транспорт",
+      "slug": "logistika-i-transport",
+      "file": "data/cat-logistika-i-transport.json",
+      "count": 42
+    },
+    {
+      "name": "Право и кадры",
+      "slug": "pravo-i-kadry",
+      "file": "data/cat-pravo-i-kadry.json",
+      "count": 50
+    },
+    {
+      "name": "Энергетика и ЖКХ",
+      "slug": "energetika-i-zhkh",
+      "file": "data/cat-energetika-i-zhkh.json",
+      "count": 40
+    }
+  ]
+}

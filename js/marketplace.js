@@ -24,6 +24,11 @@
   };
 
   var els = {};
+  // Кэш категорий: slug -> { name, count, programs }
+  var catCache = {};
+  // Карта: имя категории -> { slug, file }
+  var catMap = {};
+  var indexMeta = { formats: [], docTypes: [] };
 
   function $(sel) { return document.querySelector(sel); }
   function esc(s) {
@@ -79,7 +84,7 @@
         }, 250);
       });
     }
-    if (els.cat) els.cat.addEventListener("change", function () { state.category = els.cat.value; apply(); });
+    if (els.cat) els.cat.addEventListener("change", function () { state.category = els.cat.value; loadAndApply(); });
     if (els.fmt) els.fmt.addEventListener("change", function () { state.format = els.fmt.value; apply(); });
     if (els.doc) els.doc.addEventListener("change", function () { state.docType = els.doc.value; apply(); });
     if (els.sort) els.sort.addEventListener("change", function () { state.sort = els.sort.value; apply(); });
@@ -99,29 +104,127 @@
   }
 
   function load() {
-    var url = "data/programs.json?v=1.0-790";
-    fetch(url, { cache: "no-cache" })
+    fetch("data/index.json?v=1.0-790", { cache: "no-cache" })
       .then(function (r) {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.json();
       })
       .then(function (data) {
+        var cats = (data && data.categories) ? data.categories : [];
+        catMap = {};
+        for (var i = 0; i < cats.length; i++) {
+          catMap[cats[i].name] = { slug: cats[i].slug, file: cats[i].file, count: cats[i].count };
+        }
+        indexMeta = {
+          categories: cats.map(function (c) { return c.name; }),
+          formats: data.formats || [],
+          docTypes: data.docTypes || []
+        };
+        buildFilters(indexMeta);
+        // Грузим ?cat= из URL если есть, иначе стартуем
+        var params = new URLSearchParams(window.location.search);
+        var catParam = (params.get("cat") || "").trim();
+        if (catParam && catMap[catParam]) {
+          state.category = catParam;
+          if (els.cat) els.cat.value = catParam;
+        }
+        loadAndApply();
+      })
+      .catch(function (err) {
+        // Fallback: пробуем старый монолитный programs.json
+        console.warn("marketplace: index.json не загружен, fallback на programs.json", err);
+        loadFallback();
+      });
+  }
+
+  // Fallback на единый programs.json (обратная совместимость / оффлайн-кэш)
+  function loadFallback() {
+    fetch("data/programs.json?v=1.0-790", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (data) {
         state.all = (data && data.programs) ? data.programs : [];
         buildFilters(data && data.meta ? data.meta : {});
         apply();
       })
-      .catch(function (err) {
-        console.error("marketplace: загрузка программ не удалась", err);
-        if (els.grid) {
-          els.grid.innerHTML = "";
-        }
-        if (els.empty) {
-          els.empty.hidden = false;
-          els.empty.querySelector("#mp-empty-text").textContent =
-            "Не удалось загрузить каталог. Попробуйте обновить страницу.";
-        }
-        if (els.loader) els.loader.hidden = true;
+      .catch(function (err) { failLoad(err); });
+  }
+
+  function failLoad(err) {
+    console.error("marketplace: загрузка программ не удалась", err);
+    if (els.grid) els.grid.innerHTML = "";
+    if (els.empty) {
+      els.empty.hidden = false;
+      var txt = els.empty.querySelector("#mp-empty-text");
+      if (txt) txt.textContent = "Не удалось загрузить каталог. Попробуйте обновить страницу.";
+    }
+    if (els.loader) els.loader.hidden = true;
+  }
+
+  // Загружает нужные cat-файлы на основе state.category и применяет фильтр.
+  function loadAndApply() {
+    if (state.category) {
+      var entry = catMap[state.category];
+      if (!entry) { apply(); return; }
+      if (catCache[entry.slug]) {
+        state.all = catCache[entry.slug].programs;
+        apply();
+      } else {
+        fetchCat(entry, function () {
+          state.all = catCache[entry.slug].programs;
+          apply();
+        }, failLoad);
+      }
+    } else {
+      // Все категории — собираем из кэша, догружая недостающие
+      collectAll(function (all) {
+        state.all = all;
+        apply();
+      }, failLoad);
+    }
+  }
+
+  function fetchCat(entry, onSuccess, onError) {
+    fetch(entry.file + "?v=1.0-790", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (data) {
+        catCache[entry.slug] = {
+          name: entry.name || data.category,
+          count: data.count,
+          programs: data.programs || []
+        };
+        onSuccess();
+      })
+      .catch(onError);
+  }
+
+  function collectAll(onSuccess, onError) {
+    var names = Object.keys(catMap);
+    if (names.length === 0) { onSuccess([]); return; }
+    var pending = [];
+    var all = [];
+    names.forEach(function (name) {
+      var entry = catMap[name];
+      if (catCache[entry.slug]) {
+        all = all.concat(catCache[entry.slug].programs);
+      } else {
+        pending.push(entry);
+      }
+    });
+    if (pending.length === 0) { onSuccess(all); return; }
+    var done = 0;
+    var failed = false;
+    pending.forEach(function (entry) {
+      fetchCat(entry, function () {
+        if (failed) return;
+        all = all.concat(catCache[entry.slug].programs);
+        done++;
+        if (done === pending.length) onSuccess(all);
+      }, function (err) {
+        if (failed) return;
+        failed = true;
+        onError(err);
       });
+    });
   }
 
   function buildFilters(meta) {
@@ -346,7 +449,7 @@
       els.priceMax.value = state.maxPrice;
       if (els.priceVal) els.priceVal.textContent = fmtPrice(state.maxPrice);
     }
-    apply();
+    loadAndApply();
   }
 
   // Слушаем изменения корзины, чтобы обновлять подписи кнопок

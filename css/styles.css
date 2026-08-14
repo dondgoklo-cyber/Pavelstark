@@ -1247,3 +1247,21 @@ body { max-width: 100% !important; overflow-x: clip !important; position: relati
     font-size: 14px;
   }
 }
+
+/* ============================================================
+   LICENSE MARQUEE — вторая бегущая строка (инверсная)
+   ============================================================ */
+.marquee-strip--license {
+  background: var(--bg-deep);
+  color: var(--gold);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+.marquee-strip--license .marquee-track {
+  animation-duration: 30s; /* чуть медленнее для солидности */
+}
+.marquee-strip--license .marquee-track span {
+  color: var(--gold-bright);
+  font-size: 18px;
+}

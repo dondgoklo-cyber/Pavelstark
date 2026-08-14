@@ -16,6 +16,43 @@
   /* ============================================================
      1. PRELOADER
      ============================================================ */
+  /* ============================================================
+     0. FAST CLICK — мгновенный отклик на тач-устройствах (без 300ms задержки)
+     ============================================================ */
+  function initFastClick() {
+    if (!isTouch) return;
+    document.addEventListener("touchend", (e) => {
+      // Обрабатываем только кликабельные элементы
+      const target = e.target.closest("a, button, .btn, .tabs__btn, .faq__question");
+      if (!target) return;
+      // Предотвращаем синтетический click с задержкой
+      if (target.dataset.fastClickHandled) {
+        e.preventDefault();
+        e.stopPropagation();
+        delete target.dataset.fastClickHandled;
+        return;
+      }
+      target.dataset.fastClickHandled = "1";
+      // Сбрасываем флаг через короткое время, чтобы повторный тап работал
+      setTimeout(() => { delete target.dataset.fastClickHandled; }, 500);
+    }, { passive: false, capture: true });
+  }
+
+  /* ============================================================
+     0b. PREVENT DOUBLE-TAP ZOOM на кнопках (мобильные)
+     ============================================================ */
+  function initPreventDoubleTap() {
+    if (!isTouch) return;
+    let lastTouch = 0;
+    document.querySelectorAll(".btn, .tabs__btn, .faq__question, .footer__social-link").forEach((el) => {
+      el.addEventListener("touchend", (e) => {
+        const now = Date.now();
+        if (now - lastTouch <= 300) { e.preventDefault(); }
+        lastTouch = now;
+      }, { passive: false });
+    });
+  }
+
   function initPreloader() {
     const pl = document.getElementById("preloader");
     if (!pl) return;
@@ -459,5 +496,7 @@
     initCalculator();
     initForm();
     initMagnetic();
+    initFastClick();
+    initPreventDoubleTap();
   });
 })();

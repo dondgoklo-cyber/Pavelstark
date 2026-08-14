@@ -38,6 +38,13 @@ body {
   background: var(--white);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+  touch-action: pan-y;
   cursor: auto;
 }
 @media (pointer: fine) {
@@ -346,6 +353,53 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .reveal-text .char { display: inline-block; opacity: 0; transform: translateY(20px); }
 .reveal-text.is-visible .char { opacity: 1; transform: translateY(0); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+
+
+/* ============================================================
+   MOBILE NATIVE EXPERIENCE — тач, safe-area, iOS
+   ============================================================ */
+/* Убираем синюю подсветку при тапе (iOS/Android) */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Увеличенные тач-зоны для интерактива на мобильном */
+@media (pointer: coarse) {
+  .btn, .nav__link, .tabs__btn, .faq__question, .course-card, .feature-card,
+  .teacher, .footer__social-link, .hero__badge, .review {
+    min-height: 44px; /* Apple HIG: минимальная тач-зона 44px */
+  }
+  .btn { padding: 16px 28px; }
+  .nav__link { padding: 16px 4px; }
+  .faq__question { padding: 20px 22px; }
+  .tabs__btn { padding: 14px 22px; }
+}
+
+/* Safe-area: отступы для notch / home indicator (iPhone X+) */
+@supports (padding: max(0px)) {
+  .header { padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+  .footer__bottom { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .hero { padding-top: max(56px, env(safe-area-inset-top)); }
+}
+
+/* Запрет выделения текста на интерактивных элементах (кроме полей ввода) */
+.btn, .nav__link, .tabs__btn, .faq__question, .faq__icon, .logo,
+.hero__badge, .course-card__tag, .footer__social-link, .stat__value {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Поля ввода — разрешаем выделение и автозум при фокусе (iOS) */
+input, select, textarea { -webkit-user-select: text; user-select: text; font-size: 16px; /* предотвращает зум iOS при фокусе */ }
+
+/* Плавный скролл с учётом sticky header при переходе по якорям */
+html { scroll-padding-top: 80px; }
+
+/* Улучшение рендеринга на Retina */
+img, svg { shape-rendering: -webkit-optimize-contrast; }
+
+/* Предотвращение «резинового» скролла на iOS */
+html, body { overscroll-behavior: none; }
 
 /* ============================================================
    RESPONSIVE

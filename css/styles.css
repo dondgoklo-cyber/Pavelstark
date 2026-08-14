@@ -18,7 +18,7 @@
   --white: #FFFFFF;
   --soft-white: #F0F2F8;
   --dark-text: #1A1F2E;
-  --muted: #7A8499;
+  --muted: #9BA4B8;
   --muted-dark: #4A5263;
   --line: rgba(245, 197, 66, 0.15);
   --line-strong: rgba(245, 197, 66, 0.3);
@@ -174,7 +174,7 @@ main { overflow-x: hidden; width: 100%; max-width: 100%; }
 .hero__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .stat { display: flex; flex-direction: column; }
 .stat__value { font-family: var(--ff-head); font-size: 28px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; word-break: keep-all; overflow-wrap: anywhere; }
-.stat__label { font-size: 13px; color: var(--soft-white); opacity: 0.8; }
+.stat__label { font-size: 13px; color: var(--soft-white); opacity: 0.9; }
 .hero__media { position: relative; max-width: 500px; margin: 0 auto; overflow: hidden; border-radius: 0; }
 .hero__img { width: 100%; height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); }
 .hero__badge { position: absolute; background: rgba(15,22,35,0.85); backdrop-filter: blur(8px); border: 1px solid var(--line); color: var(--white); padding: 6px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; animation: float 4s var(--ease) infinite; max-width: 45%; overflow: hidden; white-space: nowrap; z-index: 2; }
@@ -280,7 +280,7 @@ main { overflow-x: hidden; width: 100%; max-width: 100%; }
 .b2b__card-text { color: var(--soft-white); opacity: 0.85; margin-bottom: 20px; }
 .b2b__list { display: grid; gap: 12px; margin: 20px 0; }
 .b2b__list li { display: flex; align-items: center; gap: 12px; color: var(--soft-white); }
-.b2b__partners { font-size: 13px; color: var(--gold); opacity: 0.8; margin-top: 16px; font-weight: 500; }
+.b2b__partners { font-size: 13px; color: var(--gold-bright); opacity: 0.95; margin-top: 16px; font-weight: 500; }
 
 /* ============================================================
    CALCULATOR
@@ -356,8 +356,8 @@ main { overflow-x: hidden; width: 100%; max-width: 100%; }
 .footer__social { display: flex; gap: 10px; }
 .footer__social-link { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: rgba(255, 255, 255, 0.06); font-weight: 700; font-size: 13px; color: var(--soft-white); transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease); }
 .footer__social-link:hover { background: var(--gold); color: var(--bg-deep); transform: translateY(-3px); }
-.footer__bottom { display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 13px; opacity: 0.7; }
-.footer__legal { color: var(--muted); }
+.footer__bottom { display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 13px; color: var(--soft-white); opacity: 0.85; }
+.footer__legal { color: var(--muted); opacity: 1; }
 
 /* ============================================================
    REVEAL ANIMATIONS
@@ -540,8 +540,8 @@ html, body { overscroll-behavior: none; }
 .swiper { scrollbar-width: none; -ms-overflow-style: none; }
 .swiper::-webkit-scrollbar { display: none; }
 
-/* Поддержка prefers-color-scheme (тёмная тема браузера — лендинг уже тёмный, ок) */
-@media (prefers-color-scheme: dark) { :root { --dark-text: #F5F7FA; } }
+/* prefers-color-scheme не трогаем: лендинг уже имеет собственную тёмную тему.
+   Принудительная --dark-text: #F5F7FA ломала бы белый фон body (текст становился невидимым). */
 
 
 /* ============================================================
@@ -553,7 +553,7 @@ html, body { overscroll-behavior: none; }
 .page-hero__lead { font-size: clamp(15px, 2.5vw, 18px); color: var(--soft-white); opacity: 0.9; max-width: 640px; }
 
 /* Breadcrumbs */
-.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--soft-white); opacity: 0.75; margin-bottom: 16px; }
 .breadcrumbs a { color: var(--gold); }
 .breadcrumbs a:hover { text-decoration: underline; }
 .breadcrumbs span[aria-current] { color: var(--soft-white); opacity: 0.7; }
@@ -603,7 +603,7 @@ html, body { overscroll-behavior: none; }
 .tariff--popular { border: 2px solid var(--gold); }
 .tariff__badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--bg-deep); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
 .tariff__name { font-family: var(--ff-head); font-size: 24px; font-weight: 700; color: var(--white); }
-.tariff__desc { font-size: 14px; color: var(--soft-white); opacity: 0.7; }
+.tariff__desc { font-size: 14px; color: var(--soft-white); opacity: 0.9; }
 .tariff__discount { font-size: 28px; font-weight: 700; color: var(--gold); font-family: var(--ff-head); }
 .tariff__list { display: grid; gap: 10px; margin: 12px 0; flex: 1; }
 .tariff__list li { font-size: 14px; color: var(--soft-white); opacity: 0.85; padding-left: 20px; position: relative; }

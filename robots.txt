@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dondgoklo-cyber.github.io/Pavelstark/sitemap.xml

@@ -91,10 +91,10 @@
   function initPreloader() {
     const pl = document.getElementById("preloader");
     if (!pl) return;
-    const hide = () => { pl.classList.add("is-hidden"); setTimeout(() => pl.remove(), 600); };
+    const hide = () => { pl.classList.add("is-hidden"); setTimeout(() => pl.remove(), 500); };
     if (prefersReducedMotion) { hide(); return; }
-    window.addEventListener("load", () => setTimeout(hide, 600));
-    setTimeout(hide, 2500); // запасной выход
+    window.addEventListener("load", () => setTimeout(hide, 400));
+    setTimeout(hide, 1500); // запасной выход — не задерживаем пользователя
   }
 
   /* ============================================================

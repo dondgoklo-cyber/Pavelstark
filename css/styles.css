@@ -1652,3 +1652,10 @@ body.is-locked { overflow: hidden; }
   .hot-timer__sep { font-size: 22px; }
   .course-card__actions, .hot-card__actions { flex-direction: column; }
 }
+
+/* Чекбокс "Только со скидкой" в фильтрах каталога */
+.mp-field--checkbox {
+  flex-direction: row; align-items: center; gap: 8px; cursor: pointer;
+}
+.mp-field--checkbox input { width: 18px; height: 18px; accent-color: var(--gold-dim); cursor: pointer; }
+.mp-field__check-label { font-size: 14px; font-weight: 500; color: var(--dark-text); cursor: pointer; }

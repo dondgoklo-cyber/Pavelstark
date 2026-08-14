@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.min.css?v=13" />
+  <link rel="stylesheet" href="css/styles.min.css?v=14" />
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="apple-touch-icon" href="img/favicon.svg" />
   <title>Контакты — Академия ДПО</title>
@@ -52,7 +52,7 @@
             <p class="contacts-info__requisites">ООО «Академия ДПО»<br>ИНН: 0000000000<br>ОГРН: 0000000000000<br>Лицензия № 0000-00 (бессрочная)</p>
           </div>
           <form class="form reveal glass" data-reveal id="enroll-form" novalidate>
-            <h3 class="form__title">Записаться на обучение</h3>
+            <h3 class="form__title">Оставить заявку</h3>
             <div class="form__field"><label for="name" class="form__label">Ваше имя</label><input type="text" id="name" name="name" class="form__input" placeholder="Иван" required minlength="2" autocomplete="name" /><span class="form__error" data-error-for="name"></span></div>
             <div class="form__field"><label for="phone" class="form__label">Телефон</label><input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__" required autocomplete="tel" /><span class="form__error" data-error-for="phone"></span></div>
             <div class="form__field"><label for="course" class="form__label">Курс</label><select id="course" name="course" class="form__input form__select" required><option value="" disabled selected>Выберите курс</option><option>Охрана труда</option><option>Профпереподготовка: Бухучёт</option><option>Пожарная безопасность (ПТМ)</option><option>Электромонтёр</option><option>ГО и ЧС</option><option>Менеджмент (MBA-модуль)</option><option>Другое</option></select><span class="form__error" data-error-for="course"></span></div>
@@ -70,8 +70,24 @@
   </main>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="js/components.min.js?v=13" defer></script>
-  <script src="js/main.min.js?v=13" defer></script>
-  <script src="js/cart.min.js?v=13" defer></script>
+  <script src="js/components.min.js?v=14" defer></script>
+  <script src="js/main.min.js?v=14" defer></script>
+  <script src="js/cart.min.js?v=14" defer></script>
+
+  <script>
+    (function(){
+      var form = document.getElementById("enroll-form") || document.querySelector("form");
+      if (!form) return;
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.textContent = "Отправляем..."; btn.disabled = true; }
+        // Демо: показываем успех (в продакшене — fetch на бэкенд)
+        setTimeout(function(){
+          form.innerHTML = '<div style="text-align:center;padding:40px 20px"><p style="font-size:22px;font-weight:700;color:var(--gold);margin-bottom:12px">✓ Заявка отправлена!</p><p style="color:var(--soft-white);opacity:0.85">Менеджер свяжется с вами в течение 15 минут.</p><a href="marketplace.html" class="btn btn--primary" style="margin-top:20px">Перейти в каталог →</a></div>';
+        }, 1200);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -21,10 +21,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.min.css?v=13" />
+  <link rel="stylesheet" href="css/styles.min.css?v=14" />
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="apple-touch-icon" href="img/favicon.svg" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Schema.org: BreadcrumbList + ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dondgoklo-cyber.github.io/Pavelstark/"},
+      {"@type": "ListItem", "position": 2, "name": "Каталог программ", "item": "https://dondgoklo-cyber.github.io/Pavelstark/marketplace.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- ====== HEADER (через components.js) ====== -->
@@ -115,8 +127,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="js/components.min.js?v=13" defer></script>
-  <script src="js/cart.min.js?v=13" defer></script>
-  <script src="js/marketplace.min.js?v=13" defer></script>
+  <script src="js/components.min.js?v=14" defer></script>
+  <script src="js/cart.min.js?v=14" defer></script>
+  <script src="js/marketplace.min.js?v=14" defer></script>
 </body>
 </html>
